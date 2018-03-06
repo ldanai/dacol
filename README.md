@@ -4,13 +4,12 @@ dacol provides utilities to add/modify columns into dataframe.
 
 The utilities include:
 
-\itemize{
- \item Statistical measures: mode, confident_interval
- \item Data Transformation of a vector column: cosine, logistic, zscore
- \item Distance between 2 vector columns: euclidean, pearson, cosine, canberra
- \item Data Cleasing: trim_outlier
- \item Segmentation: decile
-}
+* Statistical measures: mode, confident_interval
+* Data Transformation of a vector column: cosine, logistic, zscore
+* Distance between 2 vector columns: euclidean, pearson, cosine, canberra
+* Data Cleasing: trim_outlier
+* Segmentation: decile
+
 
 ## Installation
 
