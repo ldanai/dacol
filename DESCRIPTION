@@ -1,13 +1,24 @@
-Package: dacol
+Package: tidymodel
 Version: 0.0.0.9000
-Title: What the Package Does (One Line, Title Case)
-Description: What the package does (one paragraph).
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
+Title: Tools to build and evalulate preditive models easier 
+Description: A set of tools to make it easy to develop and evalulate the models qualities.
+Authors@R: person("Danai", "L", email = "ldanai@gmail.com", role = c("aut", "cre"))
+URL: https://github.com/ldanai/dacol
+BugReports: https://github.com/ldanai/dacol/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
-Imports: dplyr
-RoxygenNote: 6.0.1
-Suggests: 
+Depends:
+    R (>= 3.1.2)
+Imports:
+    magrittr,
+    dplyr (>= 0.7),
+    tidyr,
+    glue,
+    rlang,
+    tibble,
+    tidyverse
+Suggests:
     testthat
+RoxygenNote: 6.0.1

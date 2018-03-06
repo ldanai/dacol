@@ -57,12 +57,19 @@
 <a href="#dacol" class="anchor"></a>dacol</h1></div>
 <p>dacol provides utilities to add/modify columns into dataframe.</p>
 <p>The utilities include:</p>
-<p>\itemize{ \item Statistical measures: mode, confident_interval \item Data Transformation of a vector column: cosine, logistic, zscore \item Distance between 2 vector columns: euclidean, pearson, cosine, canberra \item Data Cleasing: trim_outlier \item Segmentation: decile }</p>
+<ul>
+<li>Statistical measures: mode, confident_interval</li>
+<li>Data Transformation of a vector column: cosine, logistic, zscore</li>
+<li>Distance between 2 vector columns: euclidean, pearson, cosine, canberra</li>
+<li>Data Cleasing: trim_outlier</li>
+<li>Segmentation: decile</li>
+</ul>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of dacol from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"dacol"</span>)</code></pre></div>
+<p>You can install tidymodel from github with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
+devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"ldanai/dacol"</span>)</code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
@@ -76,64 +83,31 @@ dta1 =<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">x
               <span class="dt">x3 =</span> <span class="kw">sample</span>(<span class="dv">200</span>))
 
 dta1 =<span class="st"> </span><span class="kw">mutate</span>(dta1,
+
+              <span class="co"># Transformation</span>
               <span class="dt">y_cosine   =</span> <span class="kw"><a href="reference/data-normalization.html">transform_cosine</a></span>(x1, max),
               <span class="dt">y_logistic =</span> <span class="kw"><a href="reference/data-normalization.html">transform_logistic</a></span>(x2, max),
               <span class="dt">y_zcore    =</span> <span class="kw"><a href="reference/data-normalization.html">transform_zscore</a></span>(x2),
-
+              
+              <span class="co"># Distant between 2 vector columns</span>
               <span class="dt">y_dist_canb =</span> <span class="kw"><a href="reference/data-normalization.html">dist_canberra</a></span>(x2, y_zcore),
               <span class="dt">y_dist_cos  =</span> <span class="kw"><a href="reference/data-normalization.html">dist_cosine</a></span>(x2, y_zcore),
               <span class="dt">y_dist_euc  =</span> <span class="kw"><a href="reference/data-normalization.html">dist_euclidean</a></span>(x2, y_zcore),
               <span class="dt">y_dist_pear =</span> <span class="kw"><a href="reference/data-normalization.html">dist_pearson</a></span>(x2, y_zcore),
 
+              <span class="co"># Manage outliers</span>
               <span class="dt">y_trim =</span> <span class="kw"><a href="reference/data-normalization.html">trim_outlier</a></span>(x3, <span class="fl">0.01</span>),
               <span class="dt">y_norm =</span> <span class="kw"><a href="reference/data-normalization.html">normalize_percentile</a></span>(x3, <span class="fl">0.01</span>),
-
+              
+              <span class="co"># Stats measures</span>
               <span class="dt">y_mode =</span> <span class="kw"><a href="reference/data-normalization.html">mode_stats</a></span>(x3),
 
+              <span class="co"># Band segmentation</span>
               <span class="dt">y_dec_band1 =</span> <span class="kw"><a href="reference/data-normalization.html">decile_band</a></span>(x3),
               <span class="dt">y_dec_band2 =</span> <span class="kw"><a href="reference/data-normalization.html">decile_band</a></span>(x3, <span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="fl">0.9</span>, <span class="fl">0.1</span>))),
-
               <span class="dt">y_dec_ptile1 =</span> <span class="kw"><a href="reference/data-normalization.html">decile_ptile</a></span>(x3),
               <span class="dt">y_dec_ptile2 =</span> <span class="kw"><a href="reference/data-normalization.html">decile_ptile</a></span>(x3, <span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="fl">0.9</span>, <span class="fl">0.1</span>)))
-              )
-
-### Normalization/Transformation functions
-max =<span class="st"> </span><span class="dv">30</span>
-x =<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="fl">1.2</span><span class="op">*</span>max, <span class="fl">1.2</span><span class="op">*</span>max, <span class="fl">0.05</span>)
-y =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">transform_cosine</a></span>(x, max)
-<span class="co"># plot(x, y)</span>
-
-max =<span class="st"> </span><span class="dv">30</span>
-x =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, max, <span class="fl">0.05</span>)
-y =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">transform_logistic</a></span>(x, max)
-<span class="co"># plot(x, y)</span>
-
-x =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, max, <span class="fl">0.05</span>)
-y =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">transform_zscore</a></span>(x)
-<span class="co"># plot(x, y)</span>
-
-### Distance functions
-z =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">dist_canberra</a></span>(x, y)
-z =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">dist_cosine</a></span>(x, y)
-z =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">dist_euclidean</a></span>(x, y)
-z =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">dist_pearson</a></span>(x, y)
-
-### Trim outliers, normalize z-score, normalize percentile
-x =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">100</span>)
-z =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">trim_outlier</a></span>(x, <span class="fl">0.01</span>)
-z =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">normalize_percentile</a></span>(x, <span class="fl">0.01</span>)
-ci =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">get_confidence_interval</a></span>(x, <span class="fl">0.95</span>)
-
-### Mode
-z =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">mode_stats</a></span>(x)
-
-### Add columns with decile bands
-x =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">100</span>)
-y =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">decile_band</a></span>(x)
-y =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">decile_band</a></span>(x, <span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="fl">0.9</span>, <span class="fl">0.1</span>)))
-
-z =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">decile_ptile</a></span>(x)
-z =<span class="st"> </span><span class="kw"><a href="reference/data-normalization.html">decile_ptile</a></span>(x, <span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="fl">0.9</span>, <span class="fl">0.1</span>)))</code></pre></div>
+              )</code></pre></div>
 </div>
 </div>
   </div>
