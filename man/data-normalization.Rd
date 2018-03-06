@@ -137,5 +137,5 @@ y = decile_band(x)
 y = decile_band(x, c(seq(0, 0.9, 0.1)))
 
 z = decile_ptile(x)
-z = decile_band(x, c(seq(0, 0.9, 0.1)))
+z = decile_ptile(x, c(seq(0, 0.9, 0.1)))
 }
