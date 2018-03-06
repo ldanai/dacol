@@ -10,6 +10,7 @@ The utilities include:
 * Data Cleasing: trim_outlier
 * Segmentation: decile
 
+More info: https://ldanai.github.io/dacol/
 
 ## Installation
 
