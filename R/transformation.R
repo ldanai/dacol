@@ -23,6 +23,7 @@
 #'
 #' @examples
 #'
+#' library(dacol)
 #' library(tidyverse)
 #'
 #' max = 30

@@ -28,6 +28,7 @@ devtools::install_github("ldanai/dacol")
 This is a basic example which shows you how to use dacol:
 
 ``` r
+library(dacol)
 library(tidyverse)
 
 max = 30
