@@ -1,6 +1,6 @@
 # dacol
 
-dacol provides utilities to add/modify columns into dataframe.
+dacol provides utilities to add or modify columns into dataframe.
 
 The utilities include:
 

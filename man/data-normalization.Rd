@@ -72,6 +72,7 @@ returns a numeric vector after normaliztion or distance between 2 vectors.
 }
 \examples{
 
+library(dacol)
 library(tidyverse)
 
 max = 30
