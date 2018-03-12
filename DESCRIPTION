@@ -1,7 +1,7 @@
 Package: dacol
 Version: 0.0.0.9000
 Title: Tools to add or modify columns into dataframe
-Description: A set of tools to make it easy to develop and evalulate the models qualities.
+Description: A set of tools to make it easy to add or modify columns with mathematical transformations
 Authors@R: person("Danai", "L", email = "ldanai@gmail.com", role = c("aut", "cre"))
 URL: https://github.com/ldanai/dacol
 BugReports: https://github.com/ldanai/dacol/issues
