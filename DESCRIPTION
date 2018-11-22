@@ -18,6 +18,7 @@ Imports:
     glue,
     rlang,
     tibble,
+    ggplot2,
     tidyverse
 Suggests:
     testthat
