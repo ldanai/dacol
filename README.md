@@ -14,7 +14,7 @@ More info: https://ldanai.github.io/dacol/
 
 ## Installation
 
-You can install tidymodel from github with:
+You can install dacol from github with:
 
 ``` r
 # install.packages("devtools")
