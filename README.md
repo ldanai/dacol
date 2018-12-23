@@ -3,10 +3,11 @@
 dacol provides utilities to add or modify columns into dataframe.
 
 The utilities include:
-*Statistical measures: mode, confident_interval
-*Data Transformation of a vector column: cosine, logistic, zscore
-*Distance between 2 vector columns: euclidean, pearson, cosine, canberra
-*Data Cleasing: trim_outlier
+
+* Statistical measures: mode, confident_interval
+* Data Transformation of a vector column: cosine, logistic, zscore
+* Distance between 2 vector columns: euclidean, pearson, cosine, canberra
+* Data Cleasing: trim_outlier
 
 More info: https://ldanai.github.io/dacol/
   
