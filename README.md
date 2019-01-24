@@ -23,7 +23,7 @@ devtools::install_github("ldanai/dacol")
 
 ## Example
 
-This is a basic example which shows you how to us dacol:
+This is a basic example which shows you how to use dacol:
 
 ``` r
 library(dacol)
