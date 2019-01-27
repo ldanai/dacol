@@ -59,7 +59,7 @@ dta1 = mutate(dta1,
               y_dec_band2 = decile_band(x3, c(seq(0, 0.9, 0.1))),
               y_dec_ptile1 = decile_ptile(x3),
               y_dec_ptile2 = decile_ptile(x3, c(seq(0, 0.9, 0.1)))
-)
+              )
 
 dta1
 #> # A tibble: 200 x 17
