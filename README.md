@@ -93,7 +93,6 @@ dta1 = mutate(dta1,
               y_dec_ptile1 = decile_ptile(x3),
               y_dec_ptile2 = decile_ptile(x3, c(seq(0, 0.9, 0.1)))
               )
->>>>>>> ae8c336f960136186e83060039ab5e6d47e2fe27
 
 dta1
 #> # A tibble: 200 x 17
