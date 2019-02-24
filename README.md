@@ -34,6 +34,7 @@ dta1 = tibble(x1 = seq(-1.2*max, 1.2*max, length.out = 200),
               x2 = seq(0, max, length.out = 200),
               x3 = sample(200))
 
+<<<<<<< HEAD
 dta1 = 
   dta1 %>% 
   mutate(
@@ -65,6 +66,34 @@ dta1 =
     y_ranked1 = rank_ptile(x3), 
     y_ranked2 = rank_ptile(x3, c(seq(1, 100, 1))) 
   )
+=======
+dta1 = mutate(dta1,
+              
+              # Transformation
+              y_cosine   = transform_cosine(x1, max),
+              y_logistic = transform_logistic(x2, max),
+              y_zcore    = transform_zscore(x2),
+              
+              # Distant between 2 vector columns
+              y_dist_canb = dist_canberra(x2, y_zcore),
+              y_dist_cos  = dist_cosine(x2, y_zcore),
+              y_dist_euc  = dist_euclidean(x2, y_zcore),
+              y_dist_pear = dist_pearson(x2, y_zcore),
+              
+              # Manage outliers
+              y_trim = trim_outlier(x3, 0.01),
+              y_norm = normalize_percentile(x3, 0.01),
+              
+              # Stats measures
+              y_mode = mode_stats(x3),
+              
+              # Band segmentation
+              y_dec_band1 = decile_band(x3),
+              y_dec_band2 = decile_band(x3, c(seq(0, 0.9, 0.1))),
+              y_dec_ptile1 = decile_ptile(x3),
+              y_dec_ptile2 = decile_ptile(x3, c(seq(0, 0.9, 0.1)))
+              )
+>>>>>>> ae8c336f960136186e83060039ab5e6d47e2fe27
 
 dta1
 #> # A tibble: 200 x 17
