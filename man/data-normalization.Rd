@@ -15,6 +15,7 @@
 \alias{decile_band}
 \alias{decile_ptile}
 \alias{mode_stats}
+\alias{rank_ptile}
 \title{Functions to normalize, transform, measure distance between numeric vectors}
 \usage{
 transform_cosine(x, max)
@@ -42,6 +43,8 @@ decile_band(x, band_ptile = c(seq(0, 0.95, 0.05)))
 decile_ptile(x, band_ptile = c(seq(0, 0.95, 0.05)))
 
 mode_stats(x, na.rm = FALSE)
+
+rank_ptile(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
 }
 \arguments{
 \item{x}{A numeric vector}
@@ -69,6 +72,7 @@ returns a numeric vector after normaliztion or distance between 2 vectors.
 \details{
 \code{decile_band} add columns with decile bands
 \code{decile_ptile} add columns with decile percentiles
+\code{rank_ptile} add columns with ranked percentiles
 }
 \examples{
 

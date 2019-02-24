@@ -16,7 +16,7 @@ The utilities include:
 \item Data Transformation of a vector column: cosine, logistic, zscore
 \item Distance between 2 vector columns: euclidean, pearson, cosine, canberra
 \item Data Cleasing: trim_outlier
-\item Segmentation: decile
+\item Percentile: decile, rank_percentile
 }
 
 To learn more about dplyr, start with the vignettes:

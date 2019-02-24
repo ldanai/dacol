@@ -10,6 +10,7 @@
 #'
 #' \code{decile_band} add columns with decile bands
 #' \code{decile_ptile} add columns with decile percentiles
+#' \code{rank_ptile} add columns with ranked percentiles
 #'
 #' @param x A numeric vector
 #' @param y A numeric vector
@@ -210,4 +211,15 @@ mode_stats <- function(x, na.rm = FALSE) {
 
   ux <- unique(x)
   return(ux[which.max(tabulate(match(x, ux)))])
+}
+
+###-----------------------------------------------------------------------------
+#' @export
+#' @rdname data-normalization
+###-----------------------------------------------------------------------------
+rank_ptile = function(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
+{
+  level_rank   = sort(level_rank, decreasing = TRUE)
+  pct_interval = quantile(x, probs = 1 - level_rank/100)
+  level_rank[findInterval(x, pct_interval)]
 }
