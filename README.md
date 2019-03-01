@@ -12,6 +12,7 @@ The utilities include:
   - Distance between 2 vector columns: euclidean, pearson, cosine,
     canberra
   - Data Cleasing: trim\_outlier
+  - Percentile: rank\_ptile, decile\_band, decile\_ptile
 
 More info: <https://ldanai.github.io/dacol/>
 
