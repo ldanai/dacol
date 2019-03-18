@@ -25,7 +25,7 @@
 #' @examples
 #'
 #' library(dacol)
-#' library(tidyverse)
+#' library(dplyr)
 #'
 #' max = 30
 #' dta1 = tibble(x1 = seq(-1.2*max, 1.2*max, length.out = 200),

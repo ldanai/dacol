@@ -18,8 +18,7 @@ Imports:
     glue,
     rlang,
     tibble,
-    ggplot2,
-    tidyverse
+    ggplot2
 Suggests:
     testthat
 RoxygenNote: 6.1.1
