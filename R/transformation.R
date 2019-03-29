@@ -132,8 +132,8 @@ dist_pearson = function(x, y)
 ###-----------------------------------------------------------------------------
 trim_outlier = function(x, fraction=0.01)
 {
-  threshold.low  <- quantile(x, fraction, na.rm = TRUE)
-  threshold.high <- quantile(x, 1-fraction, na.rm = TRUE)
+  threshold.low  = quantile(x, fraction, na.rm = TRUE)
+  threshold.high = quantile(x, 1-fraction, na.rm = TRUE)
 
   x[x<=threshold.low]  = threshold.low
   x[x>=threshold.high] = threshold.high
@@ -204,12 +204,12 @@ decile_ptile = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-mode_stats <- function(x, na.rm = FALSE) {
+mode_stats = function(x, na.rm = FALSE) {
   if(na.rm){
     x = x[!is.na(x)]
   }
 
-  ux <- unique(x)
+  ux = unique(x)
   return(ux[which.max(tabulate(match(x, ux)))])
 }
 
