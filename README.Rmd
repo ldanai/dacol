@@ -14,9 +14,9 @@ knitr::opts_chunk$set(
 ```
 
 <!-- badges: start -->
-  [![Travis build status](https://travis-ci.org/ldanai/dacol.svg?branch=master)](https://travis-ci.org/ldanai/dacol)
-  <!-- badges: end -->
-  
+[![Travis build status](https://travis-ci.org/ldanai/dacol.svg?branch=master)](https://travis-ci.org/ldanai/dacol)
+<!-- badges: end -->
+
 # dacol
 
 dacol provides utilities to add or modify columns into dataframe.
@@ -29,7 +29,7 @@ The utilities include:
 * Data Cleasing: trim_outlier
 
 More info: https://ldanai.github.io/dacol/
-  
+
 
 ## Installation
 
