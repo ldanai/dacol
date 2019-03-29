@@ -13,11 +13,11 @@ knitr::opts_chunk$set(
 )
 ```
 
+# dacol
+
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/ldanai/dacol.svg?branch=master)](https://travis-ci.org/ldanai/dacol)
 <!-- badges: end -->
-
-# dacol
 
 dacol provides utilities to add or modify columns into dataframe.
 
