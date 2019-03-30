@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # dacol
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/dacol)](https://cran.r-project.org/package=dacol)
 [![Travis build status](https://travis-ci.org/ldanai/dacol.svg?branch=master)](https://travis-ci.org/ldanai/dacol)
 [![Codecov test coverage](https://codecov.io/gh/ldanai/dacol/branch/master/graph/badge.svg)](https://codecov.io/gh/ldanai/dacol?branch=master)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
