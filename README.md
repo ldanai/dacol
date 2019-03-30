@@ -9,6 +9,8 @@
 status](https://travis-ci.org/ldanai/dacol.svg?branch=master)](https://travis-ci.org/ldanai/dacol)
 [![Codecov test
 coverage](https://codecov.io/gh/ldanai/dacol/branch/master/graph/badge.svg)](https://codecov.io/gh/ldanai/dacol?branch=master)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 dacol provides utilities to add or modify columns into dataframe.
@@ -49,16 +51,16 @@ dta1
 #> # A tibble: 200 x 3
 #>       x1    x2    x3
 #>    <dbl> <dbl> <int>
-#>  1 -36   0       123
-#>  2 -35.6 0.151    97
-#>  3 -35.3 0.302   107
-#>  4 -34.9 0.452    28
-#>  5 -34.6 0.603   160
-#>  6 -34.2 0.754    96
-#>  7 -33.8 0.905    17
-#>  8 -33.5 1.06    171
-#>  9 -33.1 1.21      9
-#> 10 -32.7 1.36      5
+#>  1 -36   0        68
+#>  2 -35.6 0.151   143
+#>  3 -35.3 0.302     4
+#>  4 -34.9 0.452   189
+#>  5 -34.6 0.603    95
+#>  6 -34.2 0.754   166
+#>  7 -33.8 0.905    35
+#>  8 -33.5 1.06     40
+#>  9 -33.1 1.21    115
+#> 10 -32.7 1.36     16
 #> # ... with 190 more rows
 
 dta1 = 
@@ -97,16 +99,16 @@ dta1
 #> # A tibble: 200 x 19
 #>       x1    x2    x3 y_cosine y_logistic y_zcore y_dist_canb y_dist_cos
 #>    <dbl> <dbl> <int>    <dbl>      <dbl>   <dbl>       <dbl>      <dbl>
-#>  1 -36   0       123        0     0        -1.72      0           0.498
-#>  2 -35.6 0.151    97        0     0.0251   -1.70     -0.0972      0.498
-#>  3 -35.3 0.302   107        0     0.0502   -1.68     -0.218       0.498
-#>  4 -34.9 0.452    28        0     0.0752   -1.67     -0.372       0.498
-#>  5 -34.6 0.603   160        0     0.100    -1.65     -0.576       0.498
-#>  6 -34.2 0.754    96        0     0.125    -1.63     -0.858       0.498
-#>  7 -33.8 0.905    17        0     0.150    -1.62     -1.27        0.498
-#>  8 -33.5 1.06    171        0     0.174    -1.60     -1.94        0.498
-#>  9 -33.1 1.21      9        0     0.198    -1.58     -3.22        0.498
-#> 10 -32.7 1.36      5        0     0.222    -1.56     -6.56        0.498
+#>  1 -36   0        68        0     0        -1.72      0           0.498
+#>  2 -35.6 0.151   143        0     0.0251   -1.70     -0.0972      0.498
+#>  3 -35.3 0.302     4        0     0.0502   -1.68     -0.218       0.498
+#>  4 -34.9 0.452   189        0     0.0752   -1.67     -0.372       0.498
+#>  5 -34.6 0.603    95        0     0.100    -1.65     -0.576       0.498
+#>  6 -34.2 0.754   166        0     0.125    -1.63     -0.858       0.498
+#>  7 -33.8 0.905    35        0     0.150    -1.62     -1.27        0.498
+#>  8 -33.5 1.06     40        0     0.174    -1.60     -1.94        0.498
+#>  9 -33.1 1.21    115        0     0.198    -1.58     -3.22        0.498
+#> 10 -32.7 1.36     16        0     0.222    -1.56     -6.56        0.498
 #> # ... with 190 more rows, and 11 more variables: y_dist_euc <dbl>,
 #> #   y_dist_pear <dbl>, y_trim <dbl>, y_norm <dbl>, y_mode <int>,
 #> #   y_dec_band1 <dbl>, y_dec_band2 <dbl>, y_dec_ptile1 <dbl>,
@@ -115,6 +117,6 @@ dta1
 
 -----
 
-Please note that the ‘tidymodel’ project is released with a [Contributor
+Please note that the ‘dacol’ project is released with a [Contributor
 Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this
 project, you agree to abide by its terms.
