@@ -20,5 +20,6 @@ Imports:
     tibble,
     ggplot2
 Suggests:
-    testthat
+    testthat,
+    covr
 RoxygenNote: 6.1.1
