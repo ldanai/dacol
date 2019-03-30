@@ -1,3 +1,4 @@
+^\.github$
 ^\.covrignore$
 ^codecov\.yml$
 ^\.travis\.yml$
