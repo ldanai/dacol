@@ -56,6 +56,12 @@ rank_ptile(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
 \item{fraction}{The percentile value (0 to 0.5) to trim out}
 
 \item{level}{The CI level (0.5 to 1.0) of observations to be measured.}
+
+\item{band_ptile}{The percentail band (0.0 to 1.0)}
+
+\item{na.rm}{A logical value indicating whether NA values should be stripped before the computation proceeds.}
+
+\item{level_rank}{The rank level (0.0 to 1.0) for calculating percentile}
 }
 \value{
 returns a numeric vector after normaliztion or distance between 2 vectors.
