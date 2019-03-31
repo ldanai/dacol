@@ -18,9 +18,9 @@
 \alias{rank_ptile}
 \title{Functions to normalize, transform, measure distance between numeric vectors}
 \usage{
-transform_cosine(x, max)
+transform_cosine(x, max = 100)
 
-transform_logistic(x, max)
+transform_logistic(x, max = 100)
 
 transform_zscore(x)
 
@@ -98,7 +98,7 @@ dta1 = mutate(dta1,
               y_zcore    = transform_zscore(x2),
 
               # Distant between 2 vector columns
-              y_dist_canb = dist_canberra(x2, y_zcore),
+              y_dist_canb = dist_canberra(x2, x3),
               y_dist_cos  = dist_cosine(x2, y_zcore),
               y_dist_euc  = dist_euclidean(x2, y_zcore),
               y_dist_pear = dist_pearson(x2, y_zcore),
