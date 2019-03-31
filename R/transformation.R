@@ -101,6 +101,9 @@ transform_zscore = function(x)
 ###-----------------------------------------------------------------------------
 dist_canberra = function(x, y)
 {
+  if(x<0) stop("x must be non negative value")
+  if(y<0) stop("y must be non negative value")
+
   return(0.5*(1 + (x-y)/(x+y)))
 }
 
