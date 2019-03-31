@@ -67,7 +67,7 @@ NULL
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-transform_cosine = function(x, max)
+transform_cosine = function(x, max = 100)
 {
   value = 0.5*(1 + cos((pi/max)*x))
 
@@ -79,7 +79,7 @@ transform_cosine = function(x, max)
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-transform_logistic = function(x, max)
+transform_logistic = function(x, max = 100)
 {
   a     = 1/(0.1*max)             # 0.1*max --> at y = 0.5
   value = 2/(1 + exp(- a*x)) - 1  # (x > 0) --> y in [0, 1]
