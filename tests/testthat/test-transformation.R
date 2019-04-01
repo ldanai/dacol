@@ -38,9 +38,9 @@ test_that("Basic transform_zscore works", {
 })
 
 test_that("Basic trim_outlier works", {
-
+  x = c(seq(1, 10), 1000)
   expect_error(trim_outlier(data.frame(a=1:2, b=1:2)), "x must be vector")
-  expect_equal(length(trim_outlier(c(seq(1, 10), 1000))), length(x))
+  expect_equal(length(trim_outlier(x)), length(x))
 })
 
 
