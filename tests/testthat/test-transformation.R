@@ -38,8 +38,9 @@ test_that("Basic transform_zscore works", {
 })
 
 test_that("Basic trim_outlier works", {
-  x = c(seq(1, 10), 1000)
-  expect_equal(length(trim_outlier(x)), length(x))
+
+  expect_error(trim_outlier(data.frame(a=1:2, b=1:2)), "x must be vector")
+  expect_equal(length(trim_outlier(c(seq(1, 10), 1000))), length(x))
 })
 
 
@@ -89,4 +90,59 @@ test_that("Basic dist_pearson works", {
   expect_error(dist_pearson(data.frame(a=1:2, b=1:2), c(1, 0)), "x must be vector")
   expect_error(dist_pearson(c(1, 0), data.frame(a=1:2, b=1:2)), "y must be vector")
 })
+
+
+test_that("Basic normalize_percentile works", {
+  expect_error(normalize_percentile(data.frame(a=1:2, b=1:2)), "x must be vector")
+
+  x = c(seq(1, 10), 1000)
+  expect_equal(length(normalize_percentile(x)), length(x))
+  expect_equal(min(normalize_percentile(x)), -1)
+  expect_equal(max(normalize_percentile(x)), 1)
+})
+
+
+test_that("Basic get_confidence_interval works", {
+  expect_error(get_confidence_interval(data.frame(a=1:2, b=1:2)), "x must be vector")
+  expect_error(get_confidence_interval(seq(1, 10), level=2), "level must be between 0 and 1")
+
+  x = c(seq(1, 10), 1000)
+  expect_equal(get_confidence_interval(x)$mean, mean(x))
+})
+
+
+test_that("Basic decile_band works", {
+  expect_error(decile_band(data.frame(a=1:2, b=1:2)), "x must be vector")
+
+  x = c(seq(1, 10), 1000)
+  expect_equal(length(decile_band(x)), length(x))
+})
+
+
+
+test_that("Basic decile_ptile works", {
+  expect_error(decile_ptile(data.frame(a=1:2, b=1:2)), "x must be vector")
+
+  x = c(seq(1, 10), 1000)
+  expect_equal(length(decile_ptile(x)), length(x))
+})
+
+test_that("Basic rank_ptile works", {
+  expect_error(rank_ptile(data.frame(a=1:2, b=1:2)), "x must be vector")
+
+  x = c(seq(1, 10), 1000)
+  expect_equal(length(rank_ptile(x)), length(x))
+})
+
+test_that("Basic mode_stats works", {
+  expect_error(mode_stats(data.frame(a=1:2, b=1:2)), "x must be vector")
+
+  x = c(1, 2, 3, 3, 4, 5)
+  expect_equal(length(mode_stats(x)), 1)
+  expect_equal(mode_stats(x), 3)
+  expect_equal(mode_stats(c(1, 2, 3, 4, 5)), 1)
+
+})
+
+
 

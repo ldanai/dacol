@@ -152,6 +152,8 @@ dist_pearson = function(x, y)
 ###-----------------------------------------------------------------------------
 trim_outlier = function(x, fraction=0.01)
 {
+  if(!is.vector(x)) stop("x must be vector")
+
   threshold.low  = quantile(x, fraction, na.rm = TRUE)
   threshold.high = quantile(x, 1-fraction, na.rm = TRUE)
 
@@ -168,6 +170,8 @@ trim_outlier = function(x, fraction=0.01)
 ###-----------------------------------------------------------------------------
 normalize_percentile = function(x, fraction = 0.01)
 {
+  if(!is.vector(x)) stop("x must be vector")
+
   x = trim_outlier(x, fraction)
   x = (x-min(x))/(max(x)-min(x))   #Scale data to [0, 1]
   x = 2*x-1                        #Scale all values in range [-1, 1]
@@ -180,8 +184,10 @@ normalize_percentile = function(x, fraction = 0.01)
 ###-----------------------------------------------------------------------------
 get_confidence_interval = function(x, level=0.95)
 {
+  if(!is.vector(x)) stop("x must be vector")
+
   if (level <= 0 || level>=1)
-    stop("The 'level' argument must be >0 and <1")
+    stop("level must be between 0 and 1")
 
   m  = mean(x)
   n  = length(x)
@@ -200,6 +206,8 @@ get_confidence_interval = function(x, level=0.95)
 ###-----------------------------------------------------------------------------
 decile_band = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
 {
+  if(!is.vector(x)) stop("x must be vector")
+
   band_decile = quantile(x, probs = band_ptile)
   idx         = findInterval(x, band_decile)
 
@@ -213,6 +221,8 @@ decile_band = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
 ###-----------------------------------------------------------------------------
 decile_ptile = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
 {
+  if(!is.vector(x)) stop("x must be vector")
+
   band_decile = quantile(x, probs = band_ptile)
   idx         = findInterval(x, band_decile)
 
@@ -224,7 +234,24 @@ decile_ptile = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
+rank_ptile = function(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
+{
+  if(!is.vector(x)) stop("x must be vector")
+
+  level_rank   = sort(level_rank, decreasing = TRUE)
+  pct_interval = quantile(x, probs = 1 - level_rank/100)
+  level_rank[findInterval(x, pct_interval)]
+}
+
+
+###-----------------------------------------------------------------------------
+#' @export
+#' @rdname data-normalization
+###-----------------------------------------------------------------------------
 mode_stats = function(x, na.rm = FALSE) {
+
+  if(!is.vector(x)) stop("x must be vector")
+
   if(na.rm){
     x = x[!is.na(x)]
   }
@@ -233,13 +260,3 @@ mode_stats = function(x, na.rm = FALSE) {
   return(ux[which.max(tabulate(match(x, ux)))])
 }
 
-###-----------------------------------------------------------------------------
-#' @export
-#' @rdname data-normalization
-###-----------------------------------------------------------------------------
-rank_ptile = function(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
-{
-  level_rank   = sort(level_rank, decreasing = TRUE)
-  pct_interval = quantile(x, probs = 1 - level_rank/100)
-  level_rank[findInterval(x, pct_interval)]
-}
