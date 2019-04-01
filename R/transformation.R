@@ -101,8 +101,8 @@ transform_zscore = function(x)
 ###-----------------------------------------------------------------------------
 dist_canberra = function(x, y)
 {
-  if(x<0) stop("x must be non negative value")
-  if(y<0) stop("y must be non negative value")
+  if(x<0) abort("x must be non negative value")
+  if(y<0) abort("y must be non negative value")
 
   return(0.5*(1 + (x-y)/(x+y)))
 }
@@ -113,9 +113,9 @@ dist_canberra = function(x, y)
 ###-----------------------------------------------------------------------------
 dist_cosine = function(x, y)
 {
-  if(!is.vector(x)) stop("x must be vector")
-  if(!is.vector(y)) stop("y must be vector")
-  if(length(x) != length(y)) stop("x and y must have the same length vectors")
+  if(!is.vector(x)) abort("x must be vector")
+  if(!is.vector(y)) abort("y must be vector")
+  if(length(x) != length(y)) abort("x and y must have the same length vectors")
 
   return(1 - sum(x*y)/(sqrt(sum(x*x))*sqrt(sum(y*y))))
 }
@@ -126,9 +126,9 @@ dist_cosine = function(x, y)
 ###-----------------------------------------------------------------------------
 dist_euclidean = function(x, y)
 {
-  if(!is.vector(x)) stop("x must be vector")
-  if(!is.vector(y)) stop("y must be vector")
-  if(length(x) != length(y)) stop("x and y must have the same length vectors")
+  if(!is.vector(x)) abort("x must be vector")
+  if(!is.vector(y)) abort("y must be vector")
+  if(length(x) != length(y)) abort("x and y must have the same length vectors")
 
   return(sqrt(sum((x-y)^2)))
 }
@@ -139,9 +139,9 @@ dist_euclidean = function(x, y)
 ###-----------------------------------------------------------------------------
 dist_pearson = function(x, y)
 {
-  if(!is.vector(x)) stop("x must be vector")
-  if(!is.vector(y)) stop("y must be vector")
-  if(length(x) != length(y)) stop("x and y must have the same length vectors")
+  if(!is.vector(x)) abort("x must be vector")
+  if(!is.vector(y)) abort("y must be vector")
+  if(length(x) != length(y)) abort("x and y must have the same length vectors")
 
   return(0.5*(1 - (sum(x*y)-length(x)*mean(x)*mean(y))/((length(x)-1)*sd(x)*sd(y))))
 }
@@ -152,7 +152,7 @@ dist_pearson = function(x, y)
 ###-----------------------------------------------------------------------------
 trim_outlier = function(x, fraction=0.01)
 {
-  if(!is.vector(x)) stop("x must be vector")
+  if(!is.vector(x)) abort("x must be vector")
 
   threshold.low  = quantile(x, fraction, na.rm = TRUE)
   threshold.high = quantile(x, 1-fraction, na.rm = TRUE)
@@ -170,7 +170,7 @@ trim_outlier = function(x, fraction=0.01)
 ###-----------------------------------------------------------------------------
 normalize_percentile = function(x, fraction = 0.01)
 {
-  if(!is.vector(x)) stop("x must be vector")
+  if(!is.vector(x)) abort("x must be vector")
 
   x = trim_outlier(x, fraction)
   x = (x-min(x))/(max(x)-min(x))   #Scale data to [0, 1]
@@ -184,10 +184,10 @@ normalize_percentile = function(x, fraction = 0.01)
 ###-----------------------------------------------------------------------------
 get_confidence_interval = function(x, level=0.95)
 {
-  if(!is.vector(x)) stop("x must be vector")
+  if(!is.vector(x)) abort("x must be vector")
 
   if (level <= 0 || level>=1)
-    stop("level must be between 0 and 1")
+    abort("level must be between 0 and 1")
 
   m  = mean(x)
   n  = length(x)
@@ -206,7 +206,7 @@ get_confidence_interval = function(x, level=0.95)
 ###-----------------------------------------------------------------------------
 decile_band = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
 {
-  if(!is.vector(x)) stop("x must be vector")
+  if(!is.vector(x)) abort("x must be vector")
 
   band_decile = quantile(x, probs = band_ptile)
   idx         = findInterval(x, band_decile)
@@ -221,7 +221,7 @@ decile_band = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
 ###-----------------------------------------------------------------------------
 decile_ptile = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
 {
-  if(!is.vector(x)) stop("x must be vector")
+  if(!is.vector(x)) abort("x must be vector")
 
   band_decile = quantile(x, probs = band_ptile)
   idx         = findInterval(x, band_decile)
@@ -236,7 +236,7 @@ decile_ptile = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
 ###-----------------------------------------------------------------------------
 rank_ptile = function(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
 {
-  if(!is.vector(x)) stop("x must be vector")
+  if(!is.vector(x)) abort("x must be vector")
 
   level_rank   = sort(level_rank, decreasing = TRUE)
   pct_interval = quantile(x, probs = 1 - level_rank/100)
@@ -250,7 +250,7 @@ rank_ptile = function(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
 ###-----------------------------------------------------------------------------
 mode_stats = function(x, na.rm = FALSE) {
 
-  if(!is.vector(x)) stop("x must be vector")
+  if(!is.vector(x)) abort("x must be vector")
 
   if(na.rm){
     x = x[!is.na(x)]
