@@ -142,6 +142,7 @@ test_that("Basic mode_stats works", {
   expect_equal(mode_stats(x), 3)
   expect_equal(mode_stats(c(1, 2, 3, 4, 5)), 1)
 
+  expect_equal(mode_stats(c(1, 2, 3, 3, NA, 4, 5), na.rm = TRUE), 3)
 })
 
 
