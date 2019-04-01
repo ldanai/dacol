@@ -37,6 +37,11 @@ test_that("Basic transform_zscore works", {
   expect_equal(sd(transform_zscore(x)), 1)
 })
 
+test_that("Basic trim_outlier works", {
+  x = c(seq(1, 10), 1000)
+  expect_equal(length(trim_outlier(x)), length(x))
+})
+
 
 test_that("Basic dist_canberra works", {
   expect_error(dist_canberra(-1, 1), "x must be non negative value")
@@ -54,4 +59,34 @@ test_that("Basic dist_canberra works", {
   expect_lt(dist_canberra(10, 4), 1)
 })
 
+test_that("Basic dist_cosine works", {
+  expect_equal(dist_cosine(c(1, 0), c(1, 0)), 0)
+  expect_equal(dist_cosine(c(1, 0), c(0, 1)), 1)
+
+  expect_error(dist_cosine(c(1, 1, 1), c(2, 2)), "x and y must have the same length vectors")
+  expect_error(dist_cosine(data.frame(a=1:2, b=1:2), c(1, 0)), "x must be vector")
+  expect_error(dist_cosine(c(1, 0), data.frame(a=1:2, b=1:2)), "y must be vector")
+})
+
+test_that("Basic dist_euclidean works", {
+  expect_equal(dist_euclidean(c(1, 0), c(1, 0)), 0)
+  expect_equal(dist_euclidean(c(1, 0), c(0, 1)), sqrt(2))
+  expect_equal(dist_euclidean(c(1, 0), c(0, -1)), sqrt(2))
+  expect_equal(dist_euclidean(c(-1, 0), c(0, -1)), sqrt(2))
+
+  expect_error(dist_euclidean(c(1, 1, 1), c(2, 2)), "x and y must have the same length vectors")
+  expect_error(dist_euclidean(data.frame(a=1:2, b=1:2), c(1, 0)), "x must be vector")
+  expect_error(dist_euclidean(c(1, 0), data.frame(a=1:2, b=1:2)), "y must be vector")
+})
+
+test_that("Basic dist_pearson works", {
+  expect_equal(dist_pearson(c(1, 0), c(0, 1)), 1)
+  expect_equal(dist_pearson(c(1, 0), c(-1, 0)), 1)
+  expect_lt(dist_pearson(c(1, 0), c(1, 0)), 1e-10)
+  expect_lt(dist_pearson(c(0, 1), c(0, 1)), 1e-10)
+
+  expect_error(dist_pearson(c(1, 1, 1), c(2, 2)), "x and y must have the same length vectors")
+  expect_error(dist_pearson(data.frame(a=1:2, b=1:2), c(1, 0)), "x must be vector")
+  expect_error(dist_pearson(c(1, 0), data.frame(a=1:2, b=1:2)), "y must be vector")
+})
 

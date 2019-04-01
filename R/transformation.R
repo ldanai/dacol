@@ -113,13 +113,23 @@ dist_canberra = function(x, y)
 ###-----------------------------------------------------------------------------
 dist_cosine = function(x, y)
 {
+  if(!is.vector(x)) stop("x must be vector")
+  if(!is.vector(y)) stop("y must be vector")
+  if(length(x) != length(y)) stop("x and y must have the same length vectors")
+
   return(1 - sum(x*y)/(sqrt(sum(x*x))*sqrt(sum(y*y))))
 }
 
+###-----------------------------------------------------------------------------
 #' @export
 #' @rdname data-normalization
+###-----------------------------------------------------------------------------
 dist_euclidean = function(x, y)
 {
+  if(!is.vector(x)) stop("x must be vector")
+  if(!is.vector(y)) stop("y must be vector")
+  if(length(x) != length(y)) stop("x and y must have the same length vectors")
+
   return(sqrt(sum((x-y)^2)))
 }
 
@@ -129,6 +139,10 @@ dist_euclidean = function(x, y)
 ###-----------------------------------------------------------------------------
 dist_pearson = function(x, y)
 {
+  if(!is.vector(x)) stop("x must be vector")
+  if(!is.vector(y)) stop("y must be vector")
+  if(length(x) != length(y)) stop("x and y must have the same length vectors")
+
   return(0.5*(1 - (sum(x*y)-length(x)*mean(x)*mean(y))/((length(x)-1)*sd(x)*sd(y))))
 }
 
