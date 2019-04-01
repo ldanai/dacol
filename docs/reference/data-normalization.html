@@ -149,9 +149,9 @@ dist_pearson compute the Pearson correlation distance between 2 numeric vectors.
 
 <span class='fu'>decile_ptile</span>(<span class='no'>x</span>, <span class='kw'>band_ptile</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.95</span>, <span class='fl'>0.05</span>)))
 
-<span class='fu'>mode_stats</span>(<span class='no'>x</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>rank_ptile</span>(<span class='no'>x</span>, <span class='kw'>level_rank</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>5</span>, <span class='fl'>100</span>, <span class='fl'>5</span>)))
 
-<span class='fu'>rank_ptile</span>(<span class='no'>x</span>, <span class='kw'>level_rank</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>5</span>, <span class='fl'>100</span>, <span class='fl'>5</span>)))</pre>
+<span class='fu'>mode_stats</span>(<span class='no'>x</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -181,12 +181,12 @@ dist_pearson compute the Pearson correlation distance between 2 numeric vectors.
       <td><p>The percentail band (0.0 to 1.0)</p></td>
     </tr>
     <tr>
-      <th>na.rm</th>
-      <td><p>A logical value indicating whether NA values should be stripped before the computation proceeds.</p></td>
-    </tr>
-    <tr>
       <th>level_rank</th>
       <td><p>The rank level (0.0 to 1.0) for calculating percentile</p></td>
+    </tr>
+    <tr>
+      <th>na.rm</th>
+      <td><p>A logical value indicating whether NA values should be stripped before the computation proceeds.</p></td>
     </tr>
     </table>
     
@@ -213,11 +213,11 @@ dist_pearson compute the Pearson correlation distance between 2 numeric vectors.
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='input'>
 <span class='no'>max</span> <span class='kw'>=</span> <span class='fl'>30</span>
-<span class='no'>dta1</span> <span class='kw'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>tibble</a></span>(<span class='kw'>x1</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(-<span class='fl'>1.2</span>*<span class='no'>max</span>, <span class='fl'>1.2</span>*<span class='no'>max</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>200</span>),
+<span class='no'>dta1</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/dplyr/topics/reexports'>tibble</a></span>(<span class='kw'>x1</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(-<span class='fl'>1.2</span>*<span class='no'>max</span>, <span class='fl'>1.2</span>*<span class='no'>max</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>200</span>),
               <span class='kw'>x2</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='no'>max</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>200</span>),
-              <span class='kw'>x3</span> <span class='kw'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/sample.html'>sample</a></span>(<span class='fl'>200</span>))
+              <span class='kw'>x3</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/dplyr/topics/sample'>sample</a></span>(<span class='fl'>200</span>))
 
-<span class='no'>dta1</span> <span class='kw'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(<span class='no'>dta1</span>,
+<span class='no'>dta1</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/dplyr/topics/mutate'>mutate</a></span>(<span class='no'>dta1</span>,
 
               <span class='co'># Transformation</span>
               <span class='kw'>y_cosine</span>   <span class='kw'>=</span> <span class='fu'>transform_cosine</span>(<span class='no'>x1</span>, <span class='no'>max</span>),
