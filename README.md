@@ -19,11 +19,12 @@ dacol provides utilities to add or modify columns into dataframe.
 
 The utilities include:
 
-  - Statistical measures: mode, confident\_interval
-  - Data Transformation of a vector column: cosine, logistic, zscore
-  - Distance between 2 vector columns: euclidean, pearson, cosine,
-    canberra
-  - Data Cleasing: trim\_outlier
+  - Statistical measures: `mode`, `confident_interval`
+  - Normalize a vector column: `cosine`, `logistic`, `zscore`
+  - Compute distance between 2 vector columns: `euclidean`, `pearson`,
+    `cosine`, `canberra`
+  - Manage outliers: `trim_outlier`, `normalize_percentile`
+  - Calculate percentile: `decile_band`, `decile_ptile`, `rank_ptile`
 
 More info: <https://ldanai.github.io/dacol/>
 
@@ -53,16 +54,16 @@ dta1
 #> # A tibble: 200 x 3
 #>       x1    x2    x3
 #>    <dbl> <dbl> <int>
-#>  1 -36   0        28
-#>  2 -35.6 0.151   143
-#>  3 -35.3 0.302   184
-#>  4 -34.9 0.452    99
-#>  5 -34.6 0.603    49
-#>  6 -34.2 0.754    87
-#>  7 -33.8 0.905    93
-#>  8 -33.5 1.06     95
-#>  9 -33.1 1.21      8
-#> 10 -32.7 1.36     45
+#>  1 -36   0       104
+#>  2 -35.6 0.151   167
+#>  3 -35.3 0.302   130
+#>  4 -34.9 0.452    53
+#>  5 -34.6 0.603   115
+#>  6 -34.2 0.754   147
+#>  7 -33.8 0.905    72
+#>  8 -33.5 1.06    194
+#>  9 -33.1 1.21     78
+#> 10 -32.7 1.36    132
 #> # ... with 190 more rows
 
 dta1 = 
@@ -101,16 +102,16 @@ dta1
 #> # A tibble: 200 x 19
 #>       x1    x2    x3 y_cosine y_logistic y_zcore y_dist_canb y_dist_cos
 #>    <dbl> <dbl> <int>    <dbl>      <dbl>   <dbl>       <dbl>      <dbl>
-#>  1 -36   0        28        0     0        -1.72     0            0.498
-#>  2 -35.6 0.151   143        0     0.0251   -1.70     0.00105      0.498
-#>  3 -35.3 0.302   184        0     0.0502   -1.68     0.00164      0.498
-#>  4 -34.9 0.452    99        0     0.0752   -1.67     0.00455      0.498
-#>  5 -34.6 0.603    49        0     0.100    -1.65     0.0122       0.498
-#>  6 -34.2 0.754    87        0     0.125    -1.63     0.00859      0.498
-#>  7 -33.8 0.905    93        0     0.150    -1.62     0.00963      0.498
-#>  8 -33.5 1.06     95        0     0.174    -1.60     0.0110       0.498
-#>  9 -33.1 1.21      8        0     0.198    -1.58     0.131        0.498
-#> 10 -32.7 1.36     45        0     0.222    -1.56     0.0293       0.498
+#>  1 -36   0       104        0     0        -1.72    0             0.498
+#>  2 -35.6 0.151   167        0     0.0251   -1.70    0.000902      0.498
+#>  3 -35.3 0.302   130        0     0.0502   -1.68    0.00231       0.498
+#>  4 -34.9 0.452    53        0     0.0752   -1.67    0.00846       0.498
+#>  5 -34.6 0.603   115        0     0.100    -1.65    0.00522       0.498
+#>  6 -34.2 0.754   147        0     0.125    -1.63    0.00510       0.498
+#>  7 -33.8 0.905    72        0     0.150    -1.62    0.0124        0.498
+#>  8 -33.5 1.06    194        0     0.174    -1.60    0.00541       0.498
+#>  9 -33.1 1.21     78        0     0.198    -1.58    0.0152        0.498
+#> 10 -32.7 1.36    132        0     0.222    -1.56    0.0102        0.498
 #> # ... with 190 more rows, and 11 more variables: y_dist_euc <dbl>,
 #> #   y_dist_pear <dbl>, y_trim <dbl>, y_norm <dbl>, y_mode <int>,
 #> #   y_dec_band1 <dbl>, y_dec_band2 <dbl>, y_dec_ptile1 <dbl>,
