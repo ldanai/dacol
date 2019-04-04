@@ -87,7 +87,7 @@ library(dplyr)
 
 max = 30
 dta1 = tibble(x1 = seq(-1.2*max, 1.2*max, length.out = 200),
-              x2 = seq(0, max, length.out = 200),
+              x2 = seq(1, max, length.out = 200),
               x3 = sample(200))
 
 dta1 = mutate(dta1,

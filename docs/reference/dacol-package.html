@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dacol</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1</span>
       </span>
     </div>
 
@@ -118,11 +118,11 @@
 
     <p>The utilities include:</p>
 <ul>
-<li><p>Statistical measures: mode, confident_interval</p></li>
-<li><p>Data Transformation of a vector column: cosine, logistic, zscore</p></li>
-<li><p>Distance between 2 vector columns: euclidean, pearson, cosine, canberra</p></li>
-<li><p>Data Cleasing: trim_outlier</p></li>
-<li><p>Percentile: decile, rank_percentile</p></li>
+<li><p>Statistical measures: `mode`, `confident_interval`</p></li>
+<li><p>Normalize a vector column: `cosine`, `logistic`, `zscore`</p></li>
+<li><p>Compute distance between 2 vector columns: `euclidean`, `pearson`, `cosine`, `canberra`</p></li>
+<li><p>Manage outliers: `trim_outlier`, `normalize_percentile`</p></li>
+<li><p>Calculate percentile: `decile_band`, `decile_ptile`, `rank_ptile`</p></li>
 </ul>
     <p>To learn more about dplyr, start with the vignettes:
 `browseVignettes(package = "dacol")`</p>
