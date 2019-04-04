@@ -32,7 +32,7 @@
 #'
 #' max = 30
 #' dta1 = tibble(x1 = seq(-1.2*max, 1.2*max, length.out = 200),
-#'               x2 = seq(0, max, length.out = 200),
+#'               x2 = seq(1, max, length.out = 200),
 #'               x3 = sample(200))
 #'
 #' dta1 = mutate(dta1,
@@ -101,8 +101,8 @@ transform_zscore = function(x)
 ###-----------------------------------------------------------------------------
 dist_canberra = function(x, y)
 {
-  if(x<0) abort("x must be non negative value")
-  if(y<0) abort("y must be non negative value")
+  if(sum(x < 0) > 0) abort("x must be non negative value")
+  if(sum(y < 0) > 0) abort("y must be non negative value")
 
   return(0.5*(1 + (x-y)/(x+y)))
 }
