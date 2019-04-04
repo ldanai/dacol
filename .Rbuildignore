@@ -8,3 +8,5 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^docs$
+^cran-comments\.md$
+^notes$
