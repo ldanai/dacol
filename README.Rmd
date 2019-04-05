@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 [![DOI](https://zenodo.org/badge/123997166.svg)](https://zenodo.org/badge/latestdoi/123997166)
 <!-- badges: end -->
 
-dacol provides utilities to add or modify columns into dataframe.
+dacol provides utilities to add or modify columns in dataframe.
 
 The utilities include:
 
@@ -34,7 +34,6 @@ The utilities include:
 * Calculate percentile: `decile_band`, `decile_ptile`, `rank_ptile`
 
 More info: https://ldanai.github.io/dacol/
-
 
 ## Installation
 
