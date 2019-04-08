@@ -16,7 +16,7 @@ Imports:
     dplyr,
     tidyr,
     glue,
-    rlang (>= 0.1),
+    rlang,
     tibble,
     ggplot2
 Suggests:
