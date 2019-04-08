@@ -16,7 +16,11 @@ Imports:
     dplyr,
     tidyr,
     glue,
+<<<<<<< HEAD
     rlang (>= 0.3),
+=======
+    rlang (>= 0.3.3),
+>>>>>>> 541e913edc33233a653033516226ed28bcb96f79
     tibble,
     ggplot2
 Suggests:
