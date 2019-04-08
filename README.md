@@ -15,7 +15,7 @@ coverage](https://codecov.io/gh/ldanai/dacol/branch/master/graph/badge.svg)](htt
 status](https://www.r-pkg.org/badges/version/dacol)](https://cran.r-project.org/package=dacol)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![DOI](https://zenodo.org/badge/123997166.svg)](https://zenodo.org/badge/latestdoi/123997166)
+<!-- [![DOI](https://zenodo.org/badge/123997166.svg)](https://zenodo.org/badge/latestdoi/123997166) -->
 <!-- badges: end -->
 
 dacol provides utilities to add or modify columns in dataframe.
@@ -57,16 +57,16 @@ dta1
 #> # A tibble: 200 x 3
 #>       x1    x2    x3
 #>    <dbl> <dbl> <int>
-#>  1 -36   0       170
-#>  2 -35.6 0.151   135
-#>  3 -35.3 0.302    82
-#>  4 -34.9 0.452   161
-#>  5 -34.6 0.603    81
-#>  6 -34.2 0.754    52
-#>  7 -33.8 0.905   160
-#>  8 -33.5 1.06     37
-#>  9 -33.1 1.21     38
-#> 10 -32.7 1.36    141
+#>  1 -36   0        80
+#>  2 -35.6 0.151    39
+#>  3 -35.3 0.302   147
+#>  4 -34.9 0.452   158
+#>  5 -34.6 0.603    88
+#>  6 -34.2 0.754   118
+#>  7 -33.8 0.905   144
+#>  8 -33.5 1.06    181
+#>  9 -33.1 1.21    194
+#> 10 -32.7 1.36    153
 #> # ... with 190 more rows
 
 dta1 = 
@@ -105,16 +105,16 @@ dta1
 #> # A tibble: 200 x 19
 #>       x1    x2    x3 y_cosine y_logistic y_zcore y_dist_canb y_dist_cos
 #>    <dbl> <dbl> <int>    <dbl>      <dbl>   <dbl>       <dbl>      <dbl>
-#>  1 -36   0       170        0     0        -1.72     0            0.498
-#>  2 -35.6 0.151   135        0     0.0251   -1.70     0.00112      0.498
-#>  3 -35.3 0.302    82        0     0.0502   -1.68     0.00366      0.498
-#>  4 -34.9 0.452   161        0     0.0752   -1.67     0.00280      0.498
-#>  5 -34.6 0.603    81        0     0.100    -1.65     0.00739      0.498
-#>  6 -34.2 0.754    52        0     0.125    -1.63     0.0143       0.498
-#>  7 -33.8 0.905   160        0     0.150    -1.62     0.00562      0.498
-#>  8 -33.5 1.06     37        0     0.174    -1.60     0.0277       0.498
-#>  9 -33.1 1.21     38        0     0.198    -1.58     0.0308       0.498
-#> 10 -32.7 1.36    141        0     0.222    -1.56     0.00953      0.498
+#>  1 -36   0        80        0     0        -1.72     0            0.498
+#>  2 -35.6 0.151    39        0     0.0251   -1.70     0.00385      0.498
+#>  3 -35.3 0.302   147        0     0.0502   -1.68     0.00205      0.498
+#>  4 -34.9 0.452   158        0     0.0752   -1.67     0.00285      0.498
+#>  5 -34.6 0.603    88        0     0.100    -1.65     0.00681      0.498
+#>  6 -34.2 0.754   118        0     0.125    -1.63     0.00635      0.498
+#>  7 -33.8 0.905   144        0     0.150    -1.62     0.00624      0.498
+#>  8 -33.5 1.06    181        0     0.174    -1.60     0.00580      0.498
+#>  9 -33.1 1.21    194        0     0.198    -1.58     0.00618      0.498
+#> 10 -32.7 1.36    153        0     0.222    -1.56     0.00879      0.498
 #> # ... with 190 more rows, and 11 more variables: y_dist_euc <dbl>,
 #> #   y_dist_pear <dbl>, y_trim <dbl>, y_norm <dbl>, y_mode <int>,
 #> #   y_dec_band1 <dbl>, y_dec_band2 <dbl>, y_dec_ptile1 <dbl>,
