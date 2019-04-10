@@ -39,6 +39,6 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Danai L \email{ldanai@gmail.com}
+\strong{Maintainer}: Danai L \email{ldanai@gmail.com} (0000-0002-9529-6283)
 
 }
