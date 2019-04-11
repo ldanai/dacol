@@ -1,8 +1,6 @@
 /inst/doc
-/docs
 /notes
 
 .Rproj.user
 .Rhistory
 .RData
-inst/doc
