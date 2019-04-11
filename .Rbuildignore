@@ -13,3 +13,5 @@
 ^CRAN-RELEASE$
 ^appveyor\.yml$
 ^vignettes/dacol-guide\.Rmd$
+^_pkgdown\.yml$
+^pkgdown$
