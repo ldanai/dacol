@@ -12,3 +12,4 @@
 ^notes$
 ^CRAN-RELEASE$
 ^appveyor\.yml$
+^vignettes/dacol-guide\.Rmd$
