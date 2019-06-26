@@ -12,6 +12,9 @@
 #' \code{decile_ptile} add columns with decile percentiles
 #' \code{rank_ptile} add columns with ranked percentiles
 #'
+#' \code{dc_ceiling} similar to rbase::ceiling() with support decimal round up
+#' \code{mode_stats} compute the stats mode
+#'
 #' @param x A numeric vector
 #' @param y A numeric vector
 #' @param max A numeric value
@@ -20,6 +23,7 @@
 #' @param band_ptile The percentail band (0.0 to 1.0)
 #' @param level_rank The rank level (0.0 to 1.0) for calculating percentile
 #' @param na.rm	A logical value indicating whether NA values should be stripped before the computation proceeds.
+#' @param digits similar to rbase::round() which is integer indicating the number of decimal places (round) or significant digits (signif) to be used. Negative values are allowed
 #'
 #' @return returns a numeric vector after normaliztion or distance between 2 vectors.
 #'
@@ -54,6 +58,7 @@
 #'
 #'               # Stats measures
 #'               y_mode = mode_stats(x3),
+#'               y_ceil = dc_ceiling(x3, -1),
 #'
 #'               # Band segmentation
 #'               y_dec_band1 = decile_band(x3),
@@ -260,3 +265,19 @@ mode_stats = function(x, na.rm = FALSE) {
   return(ux[which.max(tabulate(match(x, ux)))])
 }
 
+###-----------------------------------------------------------------------------
+#' @export
+#' @rdname data-normalization
+###-----------------------------------------------------------------------------
+dc_ceiling = function(x, digits = 0, na.rm = FALSE) {
+
+  if(!is.vector(x)) abort("x must be vector")
+
+  if(na.rm){
+    x = x[!is.na(x)]
+  }
+
+  a = (10^(-digits))/2 - 1e-100
+
+  return(round(x + a, digits))
+}

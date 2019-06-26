@@ -145,5 +145,15 @@ test_that("Basic mode_stats works", {
   expect_equal(mode_stats(c(1, 2, 3, 3, NA, 4, 5), na.rm = TRUE), 3)
 })
 
+test_that("Basic dc_ceiling works", {
+  expect_error(dc_ceiling(data.frame(a=1:2, b=1:2)), "x must be vector")
+
+  x = c(5, 21, 39, 31, 40, 15)
+  expect_equal(length(dc_ceiling(x)), 6)
+  expect_equal(dc_ceiling(x, -1), c(10, 30, 40, 40, 40, 20))
+  expect_equal(dc_ceiling(x*10, -2), c(100, 300, 400, 400, 400, 200))
+
+  expect_equal(dc_ceiling(c(1, 2, 3, 3, NA, 4, 5), na.rm = TRUE), c(2, 2, 4, 4, 4, 6))
+})
 
 

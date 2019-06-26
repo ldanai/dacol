@@ -80,6 +80,7 @@ dta1 =
     
     # Stats measures
     y_mode = mode_stats(x3),
+    y_ceil = dc_ceiling(x1, -1),
     
     # Band segmentation
     y_dec_band1  = decile_band(x3),

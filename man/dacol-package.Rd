@@ -12,7 +12,7 @@ dacol provides utilities to add/modify columns into dataframe.
 The utilities include:
 
 \itemize{
-\item Statistical measures: `mode`, `confident_interval`
+\item Statistical measures: `mode`, `confident_interval`, `dc_ceiling`
 \item Normalize a vector column: `cosine`, `logistic`, `zscore`
 \item Compute distance between 2 vector columns: `euclidean`, `pearson`, `cosine`, `canberra`
 \item Manage outliers: `trim_outlier`, `normalize_percentile`
