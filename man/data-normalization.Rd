@@ -16,6 +16,7 @@
 \alias{decile_ptile}
 \alias{rank_ptile}
 \alias{mode_stats}
+\alias{dc_ceiling}
 \title{Functions to normalize, transform, measure distance between numeric vectors}
 \usage{
 transform_cosine(x, max = 100)
@@ -45,6 +46,8 @@ decile_ptile(x, band_ptile = c(seq(0, 0.95, 0.05)))
 rank_ptile(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
 
 mode_stats(x, na.rm = FALSE)
+
+dc_ceiling(x, digits = 0, na.rm = FALSE)
 }
 \arguments{
 \item{x}{A numeric vector}
@@ -62,6 +65,8 @@ mode_stats(x, na.rm = FALSE)
 \item{level_rank}{The rank level (0.0 to 1.0) for calculating percentile}
 
 \item{na.rm}{A logical value indicating whether NA values should be stripped before the computation proceeds.}
+
+\item{digits}{similar to rbase::round() which is integer indicating the number of decimal places (round) or significant digits (signif) to be used. Negative values are allowed}
 }
 \value{
 returns a numeric vector after normaliztion or distance between 2 vectors.
@@ -79,6 +84,9 @@ returns a numeric vector after normaliztion or distance between 2 vectors.
 \code{decile_band} add columns with decile bands
 \code{decile_ptile} add columns with decile percentiles
 \code{rank_ptile} add columns with ranked percentiles
+
+\code{dc_ceiling} similar to rbase::ceiling() with support decimal round up
+\code{mode_stats} compute the stats mode
 }
 \examples{
 
@@ -109,6 +117,7 @@ dta1 = mutate(dta1,
 
               # Stats measures
               y_mode = mode_stats(x3),
+              y_ceil = dc_ceiling(x3, -1),
 
               # Band segmentation
               y_dec_band1 = decile_band(x3),

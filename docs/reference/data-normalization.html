@@ -163,7 +163,9 @@ dist_pearson compute the Pearson correlation distance between 2 numeric vectors.
 
 <span class='fu'>rank_ptile</span>(<span class='no'>x</span>, <span class='kw'>level_rank</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>5</span>, <span class='fl'>100</span>, <span class='fl'>5</span>)))
 
-<span class='fu'>mode_stats</span>(<span class='no'>x</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>mode_stats</span>(<span class='no'>x</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='fu'>dc_ceiling</span>(<span class='no'>x</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -211,6 +213,8 @@ dist_pearson compute the Pearson correlation distance between 2 numeric vectors.
     <p><code>decile_band</code> add columns with decile bands
 <code>decile_ptile</code> add columns with decile percentiles
 <code>rank_ptile</code> add columns with ranked percentiles</p>
+<p><code>dc_ceiling</code> similar to rbase::ceiling() with support decimal round up
+<code>mode_stats</code> similar to rbase::ceiling() with support decimal round up</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -248,6 +252,7 @@ dist_pearson compute the Pearson correlation distance between 2 numeric vectors.
 
               <span class='co'># Stats measures</span>
               <span class='kw'>y_mode</span> <span class='kw'>=</span> <span class='fu'>mode_stats</span>(<span class='no'>x3</span>),
+              <span class='kw'>y_ceil</span> <span class='kw'>=</span> <span class='fu'>dc_ceiling</span>(<span class='no'>x3</span>, -<span class='fl'>1</span>),
 
               <span class='co'># Band segmentation</span>
               <span class='kw'>y_dec_band1</span> <span class='kw'>=</span> <span class='fu'>decile_band</span>(<span class='no'>x3</span>),
