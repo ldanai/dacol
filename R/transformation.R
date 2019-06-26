@@ -13,7 +13,7 @@
 #' \code{rank_ptile} add columns with ranked percentiles
 #'
 #' \code{dc_ceiling} similar to rbase::ceiling() with support decimal round up
-#' \code{mode_stats} compute the stats mode
+#' \code{dc_mode} compute the stats mode
 #'
 #' @param x A numeric vector
 #' @param y A numeric vector
@@ -57,7 +57,7 @@
 #'               y_norm = normalize_percentile(x3, 0.01),
 #'
 #'               # Stats measures
-#'               y_mode = mode_stats(x3),
+#'               y_mode = dc_mode(x3),
 #'               y_ceil = dc_ceiling(x3, -1),
 #'
 #'               # Band segmentation
@@ -249,11 +249,27 @@ rank_ptile = function(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
 }
 
 
+#' ###-----------------------------------------------------------------------------
+#' #' @export
+#' #' @rdname data-normalization
+#' ###-----------------------------------------------------------------------------
+#' mode_stats = function(x, na.rm = FALSE) {
+#'
+#'   if(!is.vector(x)) abort("x must be vector")
+#'
+#'   if(na.rm){
+#'     x = x[!is.na(x)]
+#'   }
+#'
+#'   ux = unique(x)
+#'   return(ux[which.max(tabulate(match(x, ux)))])
+#' }
+
 ###-----------------------------------------------------------------------------
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-mode_stats = function(x, na.rm = FALSE) {
+dc_mode = function(x, na.rm = FALSE) {
 
   if(!is.vector(x)) abort("x must be vector")
 
@@ -264,6 +280,7 @@ mode_stats = function(x, na.rm = FALSE) {
   ux = unique(x)
   return(ux[which.max(tabulate(match(x, ux)))])
 }
+
 
 ###-----------------------------------------------------------------------------
 #' @export
