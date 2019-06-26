@@ -53,8 +53,8 @@
 #'               y_dist_pear = dist_pearson(x2, y_zcore),
 #'
 #'               # Manage outliers
-#'               y_trim = trim_outlier(x3, 0.01),
-#'               y_norm = normalize_percentile(x3, 0.01),
+#'               y_trim = dc_trim_outlier(x3, 0.01),
+#'               y_norm = dc_normalize_ptile(x3, 0.01),
 #'
 #'               # Stats measures
 #'               y_mode = dc_mode(x3),
@@ -155,7 +155,7 @@ dist_pearson = function(x, y)
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-trim_outlier = function(x, fraction=0.01)
+dc_trim_outlier = function(x, fraction=0.01)
 {
   if(!is.vector(x)) abort("x must be vector")
 
@@ -173,11 +173,11 @@ trim_outlier = function(x, fraction=0.01)
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-normalize_percentile = function(x, fraction = 0.01)
+dc_normalize_ptile = function(x, fraction = 0.01)
 {
   if(!is.vector(x)) abort("x must be vector")
 
-  x = trim_outlier(x, fraction)
+  x = dc_trim_outlier(x, fraction)
   x = (x-min(x))/(max(x)-min(x))   #Scale data to [0, 1]
   x = 2*x-1                        #Scale all values in range [-1, 1]
   return(x)

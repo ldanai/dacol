@@ -9,8 +9,8 @@
 \alias{dist_cosine}
 \alias{dist_euclidean}
 \alias{dist_pearson}
-\alias{trim_outlier}
-\alias{normalize_percentile}
+\alias{dc_trim_outlier}
+\alias{dc_normalize_ptile}
 \alias{get_confidence_interval}
 \alias{decile_band}
 \alias{decile_ptile}
@@ -33,9 +33,9 @@ dist_euclidean(x, y)
 
 dist_pearson(x, y)
 
-trim_outlier(x, fraction = 0.01)
+dc_trim_outlier(x, fraction = 0.01)
 
-normalize_percentile(x, fraction = 0.01)
+dc_normalize_ptile(x, fraction = 0.01)
 
 get_confidence_interval(x, level = 0.95)
 
@@ -79,8 +79,6 @@ returns a numeric vector after normaliztion or distance between 2 vectors.
 \code{dist_cosine} computes the cosine angle distance between 2 numeric vectors.
 \code{dist_euclidean} compute the Euclidience distance between 2 numeric vectors.
 \code{dist_pearson} compute the Pearson correlation distance between 2 numeric vectors.
-
-if(!is.vector(x)) abort("x must be vector")
 }
 \details{
 \code{decile_band} add columns with decile bands
@@ -114,8 +112,8 @@ dta1 = mutate(dta1,
               y_dist_pear = dist_pearson(x2, y_zcore),
 
               # Manage outliers
-              y_trim = trim_outlier(x3, 0.01),
-              y_norm = normalize_percentile(x3, 0.01),
+              y_trim = dc_trim_outlier(x3, 0.01),
+              y_norm = dc_normalize_ptile(x3, 0.01),
 
               # Stats measures
               y_mode = dc_mode(x3),

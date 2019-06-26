@@ -37,10 +37,10 @@ test_that("Basic transform_zscore works", {
   expect_equal(sd(transform_zscore(x)), 1)
 })
 
-test_that("Basic trim_outlier works", {
+test_that("Basic dc_trim_outlier works", {
   x = c(seq(1, 10), 1000)
-  expect_error(trim_outlier(data.frame(a=1:2, b=1:2)), "x must be vector")
-  expect_equal(length(trim_outlier(x)), length(x))
+  expect_error(dc_trim_outlier(data.frame(a=1:2, b=1:2)), "x must be vector")
+  expect_equal(length(dc_trim_outlier(x)), length(x))
 })
 
 
@@ -92,13 +92,13 @@ test_that("Basic dist_pearson works", {
 })
 
 
-test_that("Basic normalize_percentile works", {
-  expect_error(normalize_percentile(data.frame(a=1:2, b=1:2)), "x must be vector")
+test_that("Basic dc_normalize_ptile works", {
+  expect_error(dc_normalize_ptile(data.frame(a=1:2, b=1:2)), "x must be vector")
 
   x = c(seq(1, 10), 1000)
-  expect_equal(length(normalize_percentile(x)), length(x))
-  expect_equal(min(normalize_percentile(x)), -1)
-  expect_equal(max(normalize_percentile(x)), 1)
+  expect_equal(length(dc_normalize_ptile(x)), length(x))
+  expect_equal(min(dc_normalize_ptile(x)), -1)
+  expect_equal(max(dc_normalize_ptile(x)), 1)
 })
 
 
