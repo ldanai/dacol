@@ -134,16 +134,27 @@ test_that("Basic rank_ptile works", {
   expect_equal(length(rank_ptile(x)), length(x))
 })
 
-test_that("Basic mode_stats works", {
-  expect_error(mode_stats(data.frame(a=1:2, b=1:2)), "x must be vector")
+test_that("Basic dc_mode works", {
+  expect_error(dc_mode(data.frame(a=1:2, b=1:2)), "x must be vector")
 
   x = c(1, 2, 3, 3, 4, 5)
-  expect_equal(length(mode_stats(x)), 1)
-  expect_equal(mode_stats(x), 3)
-  expect_equal(mode_stats(c(1, 2, 3, 4, 5)), 1)
+  expect_equal(length(dc_mode(x)), 1)
+  expect_equal(dc_mode(x), 3)
+  expect_equal(dc_mode(c(1, 2, 3, 4, 5)), 1)
 
-  expect_equal(mode_stats(c(1, 2, 3, 3, NA, 4, 5), na.rm = TRUE), 3)
+  expect_equal(dc_mode(c(1, 2, 3, 3, NA, 4, 5), na.rm = TRUE), 3)
 })
+
+# test_that("Basic mode_stats works", {
+#   expect_error(mode_stats(data.frame(a=1:2, b=1:2)), "x must be vector")
+#
+#   x = c(1, 2, 3, 3, 4, 5)
+#   expect_equal(length(mode_stats(x)), 1)
+#   expect_equal(mode_stats(x), 3)
+#   expect_equal(mode_stats(c(1, 2, 3, 4, 5)), 1)
+#
+#   expect_equal(mode_stats(c(1, 2, 3, 3, NA, 4, 5), na.rm = TRUE), 3)
+# })
 
 test_that("Basic dc_ceiling works", {
   expect_error(dc_ceiling(data.frame(a=1:2, b=1:2)), "x must be vector")

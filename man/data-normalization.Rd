@@ -15,7 +15,7 @@
 \alias{decile_band}
 \alias{decile_ptile}
 \alias{rank_ptile}
-\alias{mode_stats}
+\alias{dc_mode}
 \alias{dc_ceiling}
 \title{Functions to normalize, transform, measure distance between numeric vectors}
 \usage{
@@ -45,7 +45,7 @@ decile_ptile(x, band_ptile = c(seq(0, 0.95, 0.05)))
 
 rank_ptile(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
 
-mode_stats(x, na.rm = FALSE)
+dc_mode(x, na.rm = FALSE)
 
 dc_ceiling(x, digits = 0, na.rm = FALSE)
 }
@@ -79,6 +79,8 @@ returns a numeric vector after normaliztion or distance between 2 vectors.
 \code{dist_cosine} computes the cosine angle distance between 2 numeric vectors.
 \code{dist_euclidean} compute the Euclidience distance between 2 numeric vectors.
 \code{dist_pearson} compute the Pearson correlation distance between 2 numeric vectors.
+
+if(!is.vector(x)) abort("x must be vector")
 }
 \details{
 \code{decile_band} add columns with decile bands
@@ -86,7 +88,7 @@ returns a numeric vector after normaliztion or distance between 2 vectors.
 \code{rank_ptile} add columns with ranked percentiles
 
 \code{dc_ceiling} similar to rbase::ceiling() with support decimal round up
-\code{mode_stats} compute the stats mode
+\code{dc_mode} compute the stats mode
 }
 \examples{
 
@@ -116,7 +118,7 @@ dta1 = mutate(dta1,
               y_norm = normalize_percentile(x3, 0.01),
 
               # Stats measures
-              y_mode = mode_stats(x3),
+              y_mode = dc_mode(x3),
               y_ceil = dc_ceiling(x3, -1),
 
               # Band segmentation

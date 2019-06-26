@@ -38,7 +38,8 @@ transform_zscore is the zscore transformation.
 dist_canberra computes the Canberra distance between 2 numeric vectors.
 dist_cosine computes the cosine angle distance between 2 numeric vectors.
 dist_euclidean compute the Euclidience distance between 2 numeric vectors.
-dist_pearson compute the Pearson correlation distance between 2 numeric vectors." />
+dist_pearson compute the Pearson correlation distance between 2 numeric vectors.
+if(!is.vector(x)) abort(&quot;x must be vector&quot;)" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -134,6 +135,7 @@ dist_pearson compute the Pearson correlation distance between 2 numeric vectors.
 <code>dist_cosine</code> computes the cosine angle distance between 2 numeric vectors.
 <code>dist_euclidean</code> compute the Euclidience distance between 2 numeric vectors.
 <code>dist_pearson</code> compute the Pearson correlation distance between 2 numeric vectors.</p>
+<p>if(!is.vector(x)) abort("x must be vector")</p>
     
     </div>
 
@@ -163,7 +165,7 @@ dist_pearson compute the Pearson correlation distance between 2 numeric vectors.
 
 <span class='fu'>rank_ptile</span>(<span class='no'>x</span>, <span class='kw'>level_rank</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>5</span>, <span class='fl'>100</span>, <span class='fl'>5</span>)))
 
-<span class='fu'>mode_stats</span>(<span class='no'>x</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>dc_mode</span>(<span class='no'>x</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='fu'>dc_ceiling</span>(<span class='no'>x</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
@@ -202,6 +204,10 @@ dist_pearson compute the Pearson correlation distance between 2 numeric vectors.
       <th>na.rm</th>
       <td><p>A logical value indicating whether NA values should be stripped before the computation proceeds.</p></td>
     </tr>
+    <tr>
+      <th>digits</th>
+      <td><p>similar to rbase::round() which is integer indicating the number of decimal places (round) or significant digits (signif) to be used. Negative values are allowed</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -214,7 +220,7 @@ dist_pearson compute the Pearson correlation distance between 2 numeric vectors.
 <code>decile_ptile</code> add columns with decile percentiles
 <code>rank_ptile</code> add columns with ranked percentiles</p>
 <p><code>dc_ceiling</code> similar to rbase::ceiling() with support decimal round up
-<code>mode_stats</code> similar to rbase::ceiling() with support decimal round up</p>
+<code>dc_mode</code> compute the stats mode</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -251,7 +257,7 @@ dist_pearson compute the Pearson correlation distance between 2 numeric vectors.
               <span class='kw'>y_norm</span> <span class='kw'>=</span> <span class='fu'>normalize_percentile</span>(<span class='no'>x3</span>, <span class='fl'>0.01</span>),
 
               <span class='co'># Stats measures</span>
-              <span class='kw'>y_mode</span> <span class='kw'>=</span> <span class='fu'>mode_stats</span>(<span class='no'>x3</span>),
+              <span class='kw'>y_mode</span> <span class='kw'>=</span> <span class='fu'>dc_mode</span>(<span class='no'>x3</span>),
               <span class='kw'>y_ceil</span> <span class='kw'>=</span> <span class='fu'>dc_ceiling</span>(<span class='no'>x3</span>, -<span class='fl'>1</span>),
 
               <span class='co'># Band segmentation</span>
