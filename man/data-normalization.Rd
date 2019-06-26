@@ -2,36 +2,36 @@
 % Please edit documentation in R/transformation.R
 \name{data-normalization}
 \alias{data-normalization}
-\alias{transform_cosine}
-\alias{transform_logistic}
-\alias{transform_zscore}
-\alias{dist_canberra}
-\alias{dist_cosine}
-\alias{dist_euclidean}
-\alias{dist_pearson}
+\alias{dc_cosine}
+\alias{dc_logistic}
+\alias{dc_zscore}
+\alias{dc_dist_canberra}
+\alias{dc_dist_cosine}
+\alias{dc_dist_euclidean}
+\alias{dc_dist_pearson}
 \alias{dc_trim_outlier}
 \alias{dc_normalize_ptile}
 \alias{get_confidence_interval}
-\alias{decile_band}
-\alias{decile_ptile}
-\alias{rank_ptile}
+\alias{dc_decile_band}
+\alias{dc_decile_ptile}
+\alias{dc_rank_ptile}
 \alias{dc_mode}
 \alias{dc_ceiling}
 \title{Functions to normalize, transform, measure distance between numeric vectors}
 \usage{
-transform_cosine(x, max = 100)
+dc_cosine(x, max = 100)
 
-transform_logistic(x, max = 100)
+dc_logistic(x, max = 100)
 
-transform_zscore(x)
+dc_zscore(x)
 
-dist_canberra(x, y)
+dc_dist_canberra(x, y)
 
-dist_cosine(x, y)
+dc_dist_cosine(x, y)
 
-dist_euclidean(x, y)
+dc_dist_euclidean(x, y)
 
-dist_pearson(x, y)
+dc_dist_pearson(x, y)
 
 dc_trim_outlier(x, fraction = 0.01)
 
@@ -39,11 +39,11 @@ dc_normalize_ptile(x, fraction = 0.01)
 
 get_confidence_interval(x, level = 0.95)
 
-decile_band(x, band_ptile = c(seq(0, 0.95, 0.05)))
+dc_decile_band(x, band_ptile = c(seq(0, 0.95, 0.05)))
 
-decile_ptile(x, band_ptile = c(seq(0, 0.95, 0.05)))
+dc_decile_ptile(x, band_ptile = c(seq(0, 0.95, 0.05)))
 
-rank_ptile(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
+dc_rank_ptile(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
 
 dc_mode(x, na.rm = FALSE)
 
@@ -72,21 +72,21 @@ dc_ceiling(x, digits = 0, na.rm = FALSE)
 returns a numeric vector after normaliztion or distance between 2 vectors.
 }
 \description{
-\code{transform_cosine} is the cosine transformation.
-\code{transform_logistic} is the logistic transformation.
-\code{transform_zscore} is the zscore transformation.
-\code{dist_canberra} computes the Canberra distance between 2 numeric vectors.
-\code{dist_cosine} computes the cosine angle distance between 2 numeric vectors.
-\code{dist_euclidean} compute the Euclidience distance between 2 numeric vectors.
-\code{dist_pearson} compute the Pearson correlation distance between 2 numeric vectors.
+\code{dc_cosine} is the cosine transformation.
+\code{dc_logistic} is the logistic transformation.
+\code{dc_zscore} is the zscore transformation.
+\code{dc_dist_canberra} computes the Canberra distance between 2 numeric vectors.
+\code{dc_dist_cosine} computes the cosine angle distance between 2 numeric vectors.
+\code{dc_dist_euclidean} compute the Euclidience distance between 2 numeric vectors.
+\code{dc_dist_pearson} compute the Pearson correlation distance between 2 numeric vectors.
 }
 \details{
-\code{decile_band} add columns with decile bands
-\code{decile_ptile} add columns with decile percentiles
-\code{rank_ptile} add columns with ranked percentiles
-
 \code{dc_ceiling} similar to rbase::ceiling() with support decimal round up
 \code{dc_mode} compute the stats mode
+
+\code{dc_rank_ptile} add columns with ranked percentiles
+\code{dc_decile_band} add columns with decile bands
+\code{dc_decile_ptile} add columns with decile percentiles
 }
 \examples{
 
@@ -101,15 +101,15 @@ dta1 = tibble(x1 = seq(-1.2*max, 1.2*max, length.out = 200),
 dta1 = mutate(dta1,
 
               # Transformation
-              y_cosine   = transform_cosine(x1, max),
-              y_logistic = transform_logistic(x2, max),
-              y_zcore    = transform_zscore(x2),
+              y_cosine   = dc_cosine(x1, max),
+              y_logistic = dc_logistic(x2, max),
+              y_zcore    = dc_zscore(x2),
 
               # Distant between 2 vector columns
-              y_dist_canb = dist_canberra(x2, x3),
-              y_dist_cos  = dist_cosine(x2, y_zcore),
-              y_dist_euc  = dist_euclidean(x2, y_zcore),
-              y_dist_pear = dist_pearson(x2, y_zcore),
+              y_dist_canb = dc_dist_canberra(x2, x3),
+              y_dist_cos  = dc_dist_cosine(x2, y_zcore),
+              y_dist_euc  = dc_dist_euclidean(x2, y_zcore),
+              y_dist_pear = dc_dist_pearson(x2, y_zcore),
 
               # Manage outliers
               y_trim = dc_trim_outlier(x3, 0.01),
@@ -120,9 +120,9 @@ dta1 = mutate(dta1,
               y_ceil = dc_ceiling(x3, -1),
 
               # Band segmentation
-              y_dec_band1 = decile_band(x3),
-              y_dec_band2 = decile_band(x3, c(seq(0, 0.9, 0.1))),
-              y_dec_ptile1 = decile_ptile(x3),
-              y_dec_ptile2 = decile_ptile(x3, c(seq(0, 0.9, 0.1)))
+              y_dec_band1 = dc_decile_band(x3),
+              y_dec_band2 = dc_decile_band(x3, c(seq(0, 0.9, 0.1))),
+              y_dec_ptile1 = dc_decile_ptile(x3),
+              y_dec_ptile2 = dc_decile_ptile(x3, c(seq(0, 0.9, 0.1)))
               )
 }

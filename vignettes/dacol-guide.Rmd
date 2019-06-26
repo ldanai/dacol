@@ -18,10 +18,10 @@ library(dacol)
 # Cosine transformation function
 max = 30
 x = seq(-1.2*max, 1.2*max, 0.05)
-plot(x, transform_cosine(x, max))
+plot(x, dc_cosine(x, max))
 
 # Logistic transformation function
 max = 30
 x = seq(0, max, 0.05)
-plot(x, transform_logistic(x, max))
+plot(x, dc_logistic(x, max))
 ```

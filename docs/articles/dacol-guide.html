@@ -96,13 +96,13 @@
 <a class="sourceLine" id="cb1-3" title="3"><span class="co"># Cosine transformation function</span></a>
 <a class="sourceLine" id="cb1-4" title="4">max =<span class="st"> </span><span class="dv">30</span></a>
 <a class="sourceLine" id="cb1-5" title="5">x =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/seq">seq</a></span>(<span class="op">-</span><span class="fl">1.2</span><span class="op">*</span>max, <span class="fl">1.2</span><span class="op">*</span>max, <span class="fl">0.05</span>)</a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(x, <span class="kw"><a href="../reference/data-normalization.html">transform_cosine</a></span>(x, max))</a></code></pre></div>
+<a class="sourceLine" id="cb1-6" title="6"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(x, <span class="kw"><a href="../reference/data-normalization.html">dc_cosine</a></span>(x, max))</a></code></pre></div>
 <p><img src="dacol-guide_files/figure-html/setup-1.png" width="700"></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"></a>
 <a class="sourceLine" id="cb2-2" title="2"><span class="co"># Logistic transformation function</span></a>
 <a class="sourceLine" id="cb2-3" title="3">max =<span class="st"> </span><span class="dv">30</span></a>
 <a class="sourceLine" id="cb2-4" title="4">x =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/seq">seq</a></span>(<span class="dv">0</span>, max, <span class="fl">0.05</span>)</a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(x, <span class="kw"><a href="../reference/data-normalization.html">transform_logistic</a></span>(x, max))</a></code></pre></div>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(x, <span class="kw"><a href="../reference/data-normalization.html">dc_logistic</a></span>(x, max))</a></code></pre></div>
 <p><img src="dacol-guide_files/figure-html/setup-2.png" width="700"></p>
   </div>
 

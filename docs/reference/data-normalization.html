@@ -32,14 +32,23 @@
 
 <meta property="og:title" content="Functions to normalize, transform, measure distance between numeric vectors — data-normalization" />
 
+<<<<<<< HEAD
+<meta property="og:description" content="dc_cosine is the cosine transformation.
+dc_logistic is the logistic transformation.
+dc_zscore is the zscore transformation.
+dc_dist_canberra computes the Canberra distance between 2 numeric vectors.
+dc_dist_cosine computes the cosine angle distance between 2 numeric vectors.
+dc_dist_euclidean compute the Euclidience distance between 2 numeric vectors.
+dc_dist_pearson compute the Pearson correlation distance between 2 numeric vectors." />
+=======
 <meta property="og:description" content="transform_cosine is the cosine transformation.
 transform_logistic is the logistic transformation.
 transform_zscore is the zscore transformation.
 dist_canberra computes the Canberra distance between 2 numeric vectors.
 dist_cosine computes the cosine angle distance between 2 numeric vectors.
 dist_euclidean compute the Euclidience distance between 2 numeric vectors.
-dist_pearson compute the Pearson correlation distance between 2 numeric vectors.
-if(!is.vector(x)) abort(&quot;x must be vector&quot;)" />
+dist_pearson compute the Pearson correlation distance between 2 numeric vectors." />
+>>>>>>> b01cad7b6578da1261470f356c32b60220d4519d
 <meta name="twitter:card" content="summary" />
 
 
@@ -128,6 +137,15 @@ if(!is.vector(x)) abort(&quot;x must be vector&quot;)" />
 
     <div class="ref-description">
     
+<<<<<<< HEAD
+    <p><code>dc_cosine</code> is the cosine transformation.
+<code>dc_logistic</code> is the logistic transformation.
+<code>dc_zscore</code> is the zscore transformation.
+<code>dc_dist_canberra</code> computes the Canberra distance between 2 numeric vectors.
+<code>dc_dist_cosine</code> computes the cosine angle distance between 2 numeric vectors.
+<code>dc_dist_euclidean</code> compute the Euclidience distance between 2 numeric vectors.
+<code>dc_dist_pearson</code> compute the Pearson correlation distance between 2 numeric vectors.</p>
+=======
     <p><code>transform_cosine</code> is the cosine transformation.
 <code>transform_logistic</code> is the logistic transformation.
 <code>transform_zscore</code> is the zscore transformation.
@@ -135,35 +153,35 @@ if(!is.vector(x)) abort(&quot;x must be vector&quot;)" />
 <code>dist_cosine</code> computes the cosine angle distance between 2 numeric vectors.
 <code>dist_euclidean</code> compute the Euclidience distance between 2 numeric vectors.
 <code>dist_pearson</code> compute the Pearson correlation distance between 2 numeric vectors.</p>
-<p>if(!is.vector(x)) abort("x must be vector")</p>
+>>>>>>> b01cad7b6578da1261470f356c32b60220d4519d
     
     </div>
 
-    <pre class="usage"><span class='fu'>transform_cosine</span>(<span class='no'>x</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>)
+    <pre class="usage"><span class='fu'>dc_cosine</span>(<span class='no'>x</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>)
 
-<span class='fu'>transform_logistic</span>(<span class='no'>x</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>)
+<span class='fu'>dc_logistic</span>(<span class='no'>x</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>)
 
-<span class='fu'>transform_zscore</span>(<span class='no'>x</span>)
+<span class='fu'>dc_zscore</span>(<span class='no'>x</span>)
 
-<span class='fu'>dist_canberra</span>(<span class='no'>x</span>, <span class='no'>y</span>)
+<span class='fu'>dc_dist_canberra</span>(<span class='no'>x</span>, <span class='no'>y</span>)
 
-<span class='fu'>dist_cosine</span>(<span class='no'>x</span>, <span class='no'>y</span>)
+<span class='fu'>dc_dist_cosine</span>(<span class='no'>x</span>, <span class='no'>y</span>)
 
-<span class='fu'>dist_euclidean</span>(<span class='no'>x</span>, <span class='no'>y</span>)
+<span class='fu'>dc_dist_euclidean</span>(<span class='no'>x</span>, <span class='no'>y</span>)
 
-<span class='fu'>dist_pearson</span>(<span class='no'>x</span>, <span class='no'>y</span>)
+<span class='fu'>dc_dist_pearson</span>(<span class='no'>x</span>, <span class='no'>y</span>)
 
-<span class='fu'>trim_outlier</span>(<span class='no'>x</span>, <span class='kw'>fraction</span> <span class='kw'>=</span> <span class='fl'>0.01</span>)
+<span class='fu'>dc_trim_outlier</span>(<span class='no'>x</span>, <span class='kw'>fraction</span> <span class='kw'>=</span> <span class='fl'>0.01</span>)
 
-<span class='fu'>normalize_percentile</span>(<span class='no'>x</span>, <span class='kw'>fraction</span> <span class='kw'>=</span> <span class='fl'>0.01</span>)
+<span class='fu'>dc_normalize_ptile</span>(<span class='no'>x</span>, <span class='kw'>fraction</span> <span class='kw'>=</span> <span class='fl'>0.01</span>)
 
 <span class='fu'>get_confidence_interval</span>(<span class='no'>x</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>)
 
-<span class='fu'>decile_band</span>(<span class='no'>x</span>, <span class='kw'>band_ptile</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.95</span>, <span class='fl'>0.05</span>)))
+<span class='fu'>dc_decile_band</span>(<span class='no'>x</span>, <span class='kw'>band_ptile</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.95</span>, <span class='fl'>0.05</span>)))
 
-<span class='fu'>decile_ptile</span>(<span class='no'>x</span>, <span class='kw'>band_ptile</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.95</span>, <span class='fl'>0.05</span>)))
+<span class='fu'>dc_decile_ptile</span>(<span class='no'>x</span>, <span class='kw'>band_ptile</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.95</span>, <span class='fl'>0.05</span>)))
 
-<span class='fu'>rank_ptile</span>(<span class='no'>x</span>, <span class='kw'>level_rank</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>5</span>, <span class='fl'>100</span>, <span class='fl'>5</span>)))
+<span class='fu'>dc_rank_ptile</span>(<span class='no'>x</span>, <span class='kw'>level_rank</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>5</span>, <span class='fl'>100</span>, <span class='fl'>5</span>)))
 
 <span class='fu'>dc_mode</span>(<span class='no'>x</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
@@ -216,11 +234,11 @@ if(!is.vector(x)) abort(&quot;x must be vector&quot;)" />
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>decile_band</code> add columns with decile bands
-<code>decile_ptile</code> add columns with decile percentiles
-<code>rank_ptile</code> add columns with ranked percentiles</p>
-<p><code>dc_ceiling</code> similar to rbase::ceiling() with support decimal round up
+    <p><code>dc_ceiling</code> similar to rbase::ceiling() with support decimal round up
 <code>dc_mode</code> compute the stats mode</p>
+<p><code>dc_rank_ptile</code> add columns with ranked percentiles
+<code>dc_decile_band</code> add columns with decile bands
+<code>dc_decile_ptile</code> add columns with decile percentiles</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -242,29 +260,29 @@ if(!is.vector(x)) abort(&quot;x must be vector&quot;)" />
 <span class='no'>dta1</span> <span class='kw'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(<span class='no'>dta1</span>,
 
               <span class='co'># Transformation</span>
-              <span class='kw'>y_cosine</span>   <span class='kw'>=</span> <span class='fu'>transform_cosine</span>(<span class='no'>x1</span>, <span class='no'>max</span>),
-              <span class='kw'>y_logistic</span> <span class='kw'>=</span> <span class='fu'>transform_logistic</span>(<span class='no'>x2</span>, <span class='no'>max</span>),
-              <span class='kw'>y_zcore</span>    <span class='kw'>=</span> <span class='fu'>transform_zscore</span>(<span class='no'>x2</span>),
+              <span class='kw'>y_cosine</span>   <span class='kw'>=</span> <span class='fu'>dc_cosine</span>(<span class='no'>x1</span>, <span class='no'>max</span>),
+              <span class='kw'>y_logistic</span> <span class='kw'>=</span> <span class='fu'>dc_logistic</span>(<span class='no'>x2</span>, <span class='no'>max</span>),
+              <span class='kw'>y_zcore</span>    <span class='kw'>=</span> <span class='fu'>dc_zscore</span>(<span class='no'>x2</span>),
 
               <span class='co'># Distant between 2 vector columns</span>
-              <span class='kw'>y_dist_canb</span> <span class='kw'>=</span> <span class='fu'>dist_canberra</span>(<span class='no'>x2</span>, <span class='no'>x3</span>),
-              <span class='kw'>y_dist_cos</span>  <span class='kw'>=</span> <span class='fu'>dist_cosine</span>(<span class='no'>x2</span>, <span class='no'>y_zcore</span>),
-              <span class='kw'>y_dist_euc</span>  <span class='kw'>=</span> <span class='fu'>dist_euclidean</span>(<span class='no'>x2</span>, <span class='no'>y_zcore</span>),
-              <span class='kw'>y_dist_pear</span> <span class='kw'>=</span> <span class='fu'>dist_pearson</span>(<span class='no'>x2</span>, <span class='no'>y_zcore</span>),
+              <span class='kw'>y_dist_canb</span> <span class='kw'>=</span> <span class='fu'>dc_dist_canberra</span>(<span class='no'>x2</span>, <span class='no'>x3</span>),
+              <span class='kw'>y_dist_cos</span>  <span class='kw'>=</span> <span class='fu'>dc_dist_cosine</span>(<span class='no'>x2</span>, <span class='no'>y_zcore</span>),
+              <span class='kw'>y_dist_euc</span>  <span class='kw'>=</span> <span class='fu'>dc_dist_euclidean</span>(<span class='no'>x2</span>, <span class='no'>y_zcore</span>),
+              <span class='kw'>y_dist_pear</span> <span class='kw'>=</span> <span class='fu'>dc_dist_pearson</span>(<span class='no'>x2</span>, <span class='no'>y_zcore</span>),
 
               <span class='co'># Manage outliers</span>
-              <span class='kw'>y_trim</span> <span class='kw'>=</span> <span class='fu'>trim_outlier</span>(<span class='no'>x3</span>, <span class='fl'>0.01</span>),
-              <span class='kw'>y_norm</span> <span class='kw'>=</span> <span class='fu'>normalize_percentile</span>(<span class='no'>x3</span>, <span class='fl'>0.01</span>),
+              <span class='kw'>y_trim</span> <span class='kw'>=</span> <span class='fu'>dc_trim_outlier</span>(<span class='no'>x3</span>, <span class='fl'>0.01</span>),
+              <span class='kw'>y_norm</span> <span class='kw'>=</span> <span class='fu'>dc_normalize_ptile</span>(<span class='no'>x3</span>, <span class='fl'>0.01</span>),
 
               <span class='co'># Stats measures</span>
               <span class='kw'>y_mode</span> <span class='kw'>=</span> <span class='fu'>dc_mode</span>(<span class='no'>x3</span>),
               <span class='kw'>y_ceil</span> <span class='kw'>=</span> <span class='fu'>dc_ceiling</span>(<span class='no'>x3</span>, -<span class='fl'>1</span>),
 
               <span class='co'># Band segmentation</span>
-              <span class='kw'>y_dec_band1</span> <span class='kw'>=</span> <span class='fu'>decile_band</span>(<span class='no'>x3</span>),
-              <span class='kw'>y_dec_band2</span> <span class='kw'>=</span> <span class='fu'>decile_band</span>(<span class='no'>x3</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.9</span>, <span class='fl'>0.1</span>))),
-              <span class='kw'>y_dec_ptile1</span> <span class='kw'>=</span> <span class='fu'>decile_ptile</span>(<span class='no'>x3</span>),
-              <span class='kw'>y_dec_ptile2</span> <span class='kw'>=</span> <span class='fu'>decile_ptile</span>(<span class='no'>x3</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.9</span>, <span class='fl'>0.1</span>)))
+              <span class='kw'>y_dec_band1</span> <span class='kw'>=</span> <span class='fu'>dc_decile_band</span>(<span class='no'>x3</span>),
+              <span class='kw'>y_dec_band2</span> <span class='kw'>=</span> <span class='fu'>dc_decile_band</span>(<span class='no'>x3</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.9</span>, <span class='fl'>0.1</span>))),
+              <span class='kw'>y_dec_ptile1</span> <span class='kw'>=</span> <span class='fu'>dc_decile_ptile</span>(<span class='no'>x3</span>),
+              <span class='kw'>y_dec_ptile2</span> <span class='kw'>=</span> <span class='fu'>dc_decile_ptile</span>(<span class='no'>x3</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.9</span>, <span class='fl'>0.1</span>)))
               )</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

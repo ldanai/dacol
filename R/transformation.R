@@ -1,19 +1,19 @@
 #' Functions to normalize, transform, measure distance between numeric vectors
 #'
-#' \code{transform_cosine} is the cosine transformation.
-#' \code{transform_logistic} is the logistic transformation.
-#' \code{transform_zscore} is the zscore transformation.
-#' \code{dist_canberra} computes the Canberra distance between 2 numeric vectors.
-#' \code{dist_cosine} computes the cosine angle distance between 2 numeric vectors.
-#' \code{dist_euclidean} compute the Euclidience distance between 2 numeric vectors.
-#' \code{dist_pearson} compute the Pearson correlation distance between 2 numeric vectors.
-#'
-#' \code{decile_band} add columns with decile bands
-#' \code{decile_ptile} add columns with decile percentiles
-#' \code{rank_ptile} add columns with ranked percentiles
+#' \code{dc_cosine} is the cosine transformation.
+#' \code{dc_logistic} is the logistic transformation.
+#' \code{dc_zscore} is the zscore transformation.
+#' \code{dc_dist_canberra} computes the Canberra distance between 2 numeric vectors.
+#' \code{dc_dist_cosine} computes the cosine angle distance between 2 numeric vectors.
+#' \code{dc_dist_euclidean} compute the Euclidience distance between 2 numeric vectors.
+#' \code{dc_dist_pearson} compute the Pearson correlation distance between 2 numeric vectors.
 #'
 #' \code{dc_ceiling} similar to rbase::ceiling() with support decimal round up
 #' \code{dc_mode} compute the stats mode
+#'
+#' \code{dc_rank_ptile} add columns with ranked percentiles
+#' \code{dc_decile_band} add columns with decile bands
+#' \code{dc_decile_ptile} add columns with decile percentiles
 #'
 #' @param x A numeric vector
 #' @param y A numeric vector
@@ -42,15 +42,15 @@
 #' dta1 = mutate(dta1,
 #'
 #'               # Transformation
-#'               y_cosine   = transform_cosine(x1, max),
-#'               y_logistic = transform_logistic(x2, max),
-#'               y_zcore    = transform_zscore(x2),
+#'               y_cosine   = dc_cosine(x1, max),
+#'               y_logistic = dc_logistic(x2, max),
+#'               y_zcore    = dc_zscore(x2),
 #'
 #'               # Distant between 2 vector columns
-#'               y_dist_canb = dist_canberra(x2, x3),
-#'               y_dist_cos  = dist_cosine(x2, y_zcore),
-#'               y_dist_euc  = dist_euclidean(x2, y_zcore),
-#'               y_dist_pear = dist_pearson(x2, y_zcore),
+#'               y_dist_canb = dc_dist_canberra(x2, x3),
+#'               y_dist_cos  = dc_dist_cosine(x2, y_zcore),
+#'               y_dist_euc  = dc_dist_euclidean(x2, y_zcore),
+#'               y_dist_pear = dc_dist_pearson(x2, y_zcore),
 #'
 #'               # Manage outliers
 #'               y_trim = dc_trim_outlier(x3, 0.01),
@@ -61,10 +61,10 @@
 #'               y_ceil = dc_ceiling(x3, -1),
 #'
 #'               # Band segmentation
-#'               y_dec_band1 = decile_band(x3),
-#'               y_dec_band2 = decile_band(x3, c(seq(0, 0.9, 0.1))),
-#'               y_dec_ptile1 = decile_ptile(x3),
-#'               y_dec_ptile2 = decile_ptile(x3, c(seq(0, 0.9, 0.1)))
+#'               y_dec_band1 = dc_decile_band(x3),
+#'               y_dec_band2 = dc_decile_band(x3, c(seq(0, 0.9, 0.1))),
+#'               y_dec_ptile1 = dc_decile_ptile(x3),
+#'               y_dec_ptile2 = dc_decile_ptile(x3, c(seq(0, 0.9, 0.1)))
 #'               )
 NULL
 
@@ -72,7 +72,7 @@ NULL
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-transform_cosine = function(x, max = 100)
+dc_cosine = function(x, max = 100)
 {
   value = 0.5*(1 + cos((pi/max)*x))
 
@@ -84,7 +84,7 @@ transform_cosine = function(x, max = 100)
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-transform_logistic = function(x, max = 100)
+dc_logistic = function(x, max = 100)
 {
   a     = 1/(0.1*max)             # 0.1*max --> at y = 0.5
   value = 2/(1 + exp(- a*x)) - 1  # (x > 0) --> y in [0, 1]
@@ -95,7 +95,7 @@ transform_logistic = function(x, max = 100)
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-transform_zscore = function(x)
+dc_zscore = function(x)
 {
   return((x-mean(x))/sd(x))
 }
@@ -104,7 +104,7 @@ transform_zscore = function(x)
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-dist_canberra = function(x, y)
+dc_dist_canberra = function(x, y)
 {
   if(sum(x < 0) > 0) abort("x must be non negative value")
   if(sum(y < 0) > 0) abort("y must be non negative value")
@@ -116,7 +116,7 @@ dist_canberra = function(x, y)
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-dist_cosine = function(x, y)
+dc_dist_cosine = function(x, y)
 {
   if(!is.vector(x)) abort("x must be vector")
   if(!is.vector(y)) abort("y must be vector")
@@ -129,7 +129,7 @@ dist_cosine = function(x, y)
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-dist_euclidean = function(x, y)
+dc_dist_euclidean = function(x, y)
 {
   if(!is.vector(x)) abort("x must be vector")
   if(!is.vector(y)) abort("y must be vector")
@@ -142,7 +142,7 @@ dist_euclidean = function(x, y)
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-dist_pearson = function(x, y)
+dc_dist_pearson = function(x, y)
 {
   if(!is.vector(x)) abort("x must be vector")
   if(!is.vector(y)) abort("y must be vector")
@@ -209,7 +209,7 @@ get_confidence_interval = function(x, level=0.95)
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-decile_band = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
+dc_decile_band = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
 {
   if(!is.vector(x)) abort("x must be vector")
 
@@ -224,7 +224,7 @@ decile_band = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-decile_ptile = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
+dc_decile_ptile = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
 {
   if(!is.vector(x)) abort("x must be vector")
 
@@ -239,7 +239,7 @@ decile_ptile = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-rank_ptile = function(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
+dc_rank_ptile = function(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
 {
   if(!is.vector(x)) abort("x must be vector")
 
