@@ -38,8 +38,7 @@ transform_zscore is the zscore transformation.
 dist_canberra computes the Canberra distance between 2 numeric vectors.
 dist_cosine computes the cosine angle distance between 2 numeric vectors.
 dist_euclidean compute the Euclidience distance between 2 numeric vectors.
-dist_pearson compute the Pearson correlation distance between 2 numeric vectors.
-if(!is.vector(x)) abort(&quot;x must be vector&quot;)" />
+dist_pearson compute the Pearson correlation distance between 2 numeric vectors." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -135,7 +134,6 @@ if(!is.vector(x)) abort(&quot;x must be vector&quot;)" />
 <code>dist_cosine</code> computes the cosine angle distance between 2 numeric vectors.
 <code>dist_euclidean</code> compute the Euclidience distance between 2 numeric vectors.
 <code>dist_pearson</code> compute the Pearson correlation distance between 2 numeric vectors.</p>
-<p>if(!is.vector(x)) abort("x must be vector")</p>
     
     </div>
 
@@ -153,9 +151,9 @@ if(!is.vector(x)) abort(&quot;x must be vector&quot;)" />
 
 <span class='fu'>dist_pearson</span>(<span class='no'>x</span>, <span class='no'>y</span>)
 
-<span class='fu'>trim_outlier</span>(<span class='no'>x</span>, <span class='kw'>fraction</span> <span class='kw'>=</span> <span class='fl'>0.01</span>)
+<span class='fu'>dc_trim_outlier</span>(<span class='no'>x</span>, <span class='kw'>fraction</span> <span class='kw'>=</span> <span class='fl'>0.01</span>)
 
-<span class='fu'>normalize_percentile</span>(<span class='no'>x</span>, <span class='kw'>fraction</span> <span class='kw'>=</span> <span class='fl'>0.01</span>)
+<span class='fu'>dc_normalize_ptile</span>(<span class='no'>x</span>, <span class='kw'>fraction</span> <span class='kw'>=</span> <span class='fl'>0.01</span>)
 
 <span class='fu'>get_confidence_interval</span>(<span class='no'>x</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>)
 
@@ -253,8 +251,8 @@ if(!is.vector(x)) abort(&quot;x must be vector&quot;)" />
               <span class='kw'>y_dist_pear</span> <span class='kw'>=</span> <span class='fu'>dist_pearson</span>(<span class='no'>x2</span>, <span class='no'>y_zcore</span>),
 
               <span class='co'># Manage outliers</span>
-              <span class='kw'>y_trim</span> <span class='kw'>=</span> <span class='fu'>trim_outlier</span>(<span class='no'>x3</span>, <span class='fl'>0.01</span>),
-              <span class='kw'>y_norm</span> <span class='kw'>=</span> <span class='fu'>normalize_percentile</span>(<span class='no'>x3</span>, <span class='fl'>0.01</span>),
+              <span class='kw'>y_trim</span> <span class='kw'>=</span> <span class='fu'>dc_trim_outlier</span>(<span class='no'>x3</span>, <span class='fl'>0.01</span>),
+              <span class='kw'>y_norm</span> <span class='kw'>=</span> <span class='fu'>dc_normalize_ptile</span>(<span class='no'>x3</span>, <span class='fl'>0.01</span>),
 
               <span class='co'># Stats measures</span>
               <span class='kw'>y_mode</span> <span class='kw'>=</span> <span class='fu'>dc_mode</span>(<span class='no'>x3</span>),
