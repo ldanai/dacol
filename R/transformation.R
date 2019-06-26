@@ -248,7 +248,6 @@ rank_ptile = function(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
   level_rank[findInterval(x, pct_interval)]
 }
 
-
 ###-----------------------------------------------------------------------------
 #' @export
 #' @rdname data-normalization
