@@ -39,7 +39,7 @@ dc_normalize_ptile(x, fraction = 0.01)
 
 get_confidence_interval(x, level = 0.95)
 
-dc_decile_band(x, band_ptile = c(seq(0, 0.95, 0.05)))
+dc_decile_band(x, n = NA)
 
 dc_decile_ptile(x, band_ptile = c(seq(0, 0.95, 0.05)))
 

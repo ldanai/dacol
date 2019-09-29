@@ -209,15 +209,45 @@ get_confidence_interval = function(x, level=0.95)
 #' @export
 #' @rdname data-normalization
 ###-----------------------------------------------------------------------------
-dc_decile_band = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
+# dc_decile_band = function(x, band_ptile = c(seq(0, 0.95, 0.05)))
+# {
+#   if(!is.vector(x)) abort("x must be vector")
+#
+#   band_decile = quantile(x, probs = band_ptile)
+#   idx         = findInterval(x, band_decile)
+#
+#   # return
+#   band_decile[idx]
+# }
+dc_decile_band = function (x, n = NA)
 {
-  if(!is.vector(x)) abort("x must be vector")
+  #library(dplyr)
 
-  band_decile = quantile(x, probs = band_ptile)
-  idx         = findInterval(x, band_decile)
+  if (!is.vector(x))
+    abort("x must be vector")
+
+  d = data_frame(x = x)
+
+  if(is.na(n))
+    n = max(dplyr::n_distinct(x), 1e4)
+  #n = n_distinct(x)
+
+  d2 =
+    d %>%
+    mutate(x2 = dplyr::ntile(x, n))
+
+  d3 =
+    d %>%
+    dplyr::mutate(x2 = dplyr::ntile(x, n)
+           #x3 = pmax(x[x2])
+    ) %>%
+    dplyr::group_by(x2) %>%
+    dplyr::summarize(x3 = max(x))
+
+  d4 = dplyr::left_join(d2, d3, by = "x2")
 
   # return
-  band_decile[idx]
+  d4$x3
 }
 
 ###-----------------------------------------------------------------------------
