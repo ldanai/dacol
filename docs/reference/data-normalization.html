@@ -8,21 +8,25 @@
 
 <title>Functions to normalize, transform, measure distance between numeric vectors — data-normalization • dacol</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,8 +34,8 @@
 
 
 
-<meta property="og:title" content="Functions to normalize, transform, measure distance between numeric vectors — data-normalization" />
 
+<meta property="og:title" content="Functions to normalize, transform, measure distance between numeric vectors — data-normalization" />
 <meta property="og:description" content="dc_cosine is the cosine transformation.
 dc_logistic is the logistic transformation.
 dc_zscore is the zscore transformation.
@@ -43,6 +47,7 @@ dc_dist_pearson compute the Pearson correlation distance between 2 numeric vecto
 
 
 
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -51,6 +56,7 @@ dc_dist_pearson compute the Pearson correlation distance between 2 numeric vecto
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 
 
   </head>
@@ -77,7 +83,7 @@ dc_dist_pearson compute the Pearson correlation distance between 2 numeric vecto
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -100,11 +106,10 @@ dc_dist_pearson compute the Pearson correlation distance between 2 numeric vecto
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/ldanai/dacol">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -115,6 +120,7 @@ dc_dist_pearson compute the Pearson correlation distance between 2 numeric vecto
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -126,7 +132,6 @@ dc_dist_pearson compute the Pearson correlation distance between 2 numeric vecto
     </div>
 
     <div class="ref-description">
-    
     <p><code>dc_cosine</code> is the cosine transformation.
 <code>dc_logistic</code> is the logistic transformation.
 <code>dc_zscore</code> is the zscore transformation.
@@ -134,7 +139,6 @@ dc_dist_pearson compute the Pearson correlation distance between 2 numeric vecto
 <code>dc_dist_cosine</code> computes the cosine angle distance between 2 numeric vectors.
 <code>dc_dist_euclidean</code> compute the Euclidience distance between 2 numeric vectors.
 <code>dc_dist_pearson</code> compute the Pearson correlation distance between 2 numeric vectors.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>dc_cosine</span>(<span class='no'>x</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>)
@@ -157,16 +161,16 @@ dc_dist_pearson compute the Pearson correlation distance between 2 numeric vecto
 
 <span class='fu'>get_confidence_interval</span>(<span class='no'>x</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>)
 
-<span class='fu'>dc_decile_band</span>(<span class='no'>x</span>, <span class='kw'>band_ptile</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.95</span>, <span class='fl'>0.05</span>)))
+<span class='fu'>dc_decile_band</span>(<span class='no'>x</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>NA</span>)
 
-<span class='fu'>dc_decile_ptile</span>(<span class='no'>x</span>, <span class='kw'>band_ptile</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.95</span>, <span class='fl'>0.05</span>)))
+<span class='fu'>dc_decile_ptile</span>(<span class='no'>x</span>, <span class='kw'>band_ptile</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.95</span>, <span class='fl'>0.05</span>)))
 
-<span class='fu'>dc_rank_ptile</span>(<span class='no'>x</span>, <span class='kw'>level_rank</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>5</span>, <span class='fl'>100</span>, <span class='fl'>5</span>)))
+<span class='fu'>dc_rank_ptile</span>(<span class='no'>x</span>, <span class='kw'>level_rank</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>5</span>, <span class='fl'>100</span>, <span class='fl'>5</span>)))
 
 <span class='fu'>dc_mode</span>(<span class='no'>x</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='fu'>dc_ceiling</span>(<span class='no'>x</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -207,11 +211,10 @@ dc_dist_pearson compute the Pearson correlation distance between 2 numeric vecto
       <td><p>similar to rbase::round() which is integer indicating the number of decimal places (round) or significant digits (signif) to be used. Negative values are allowed</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>returns a numeric vector after normaliztion or distance between 2 vectors.</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p><code>dc_ceiling</code> similar to rbase::ceiling() with support decimal round up
@@ -219,22 +222,19 @@ dc_dist_pearson compute the Pearson correlation distance between 2 numeric vecto
 <p><code>dc_rank_ptile</code> add columns with ranked percentiles
 <code>dc_decile_band</code> add columns with decile bands
 <code>dc_decile_ptile</code> add columns with decile percentiles</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>dacol</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>dplyr</span>)</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: 'dplyr'</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from 'package:testthat':</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    matches</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from 'package:stats':</span>
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dacol</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)</div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Attaching package: 'dplyr'</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from 'package:stats':</span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    filter, lag</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from 'package:base':</span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='input'>
 <span class='no'>max</span> <span class='kw'>=</span> <span class='fl'>30</span>
-<span class='no'>dta1</span> <span class='kw'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>tibble</a></span>(<span class='kw'>x1</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(-<span class='fl'>1.2</span>*<span class='no'>max</span>, <span class='fl'>1.2</span>*<span class='no'>max</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>200</span>),
-              <span class='kw'>x2</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>1</span>, <span class='no'>max</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>200</span>),
+<span class='no'>dta1</span> <span class='kw'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>tibble</a></span>(<span class='kw'>x1</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(-<span class='fl'>1.2</span>*<span class='no'>max</span>, <span class='fl'>1.2</span>*<span class='no'>max</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>200</span>),
+              <span class='kw'>x2</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>1</span>, <span class='no'>max</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>200</span>),
               <span class='kw'>x3</span> <span class='kw'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/sample.html'>sample</a></span>(<span class='fl'>200</span>))
 
 <span class='no'>dta1</span> <span class='kw'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(<span class='no'>dta1</span>,
@@ -260,25 +260,23 @@ dc_dist_pearson compute the Pearson correlation distance between 2 numeric vecto
 
               <span class='co'># Band segmentation</span>
               <span class='kw'>y_dec_band1</span> <span class='kw'>=</span> <span class='fu'>dc_decile_band</span>(<span class='no'>x3</span>),
-              <span class='kw'>y_dec_band2</span> <span class='kw'>=</span> <span class='fu'>dc_decile_band</span>(<span class='no'>x3</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.9</span>, <span class='fl'>0.1</span>))),
+              <span class='kw'>y_dec_band2</span> <span class='kw'>=</span> <span class='fu'>dc_decile_band</span>(<span class='no'>x3</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.9</span>, <span class='fl'>0.1</span>))),
               <span class='kw'>y_dec_ptile1</span> <span class='kw'>=</span> <span class='fu'>dc_decile_ptile</span>(<span class='no'>x3</span>),
-              <span class='kw'>y_dec_ptile2</span> <span class='kw'>=</span> <span class='fu'>dc_decile_ptile</span>(<span class='no'>x3</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.9</span>, <span class='fl'>0.1</span>)))
-              )</div></pre>
+              <span class='kw'>y_dec_ptile2</span> <span class='kw'>=</span> <span class='fu'>dc_decile_ptile</span>(<span class='no'>x3</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>0.9</span>, <span class='fl'>0.1</span>)))
+              )</div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#details">Details</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -286,13 +284,16 @@ dc_dist_pearson compute the Pearson correlation distance between 2 numeric vecto
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
