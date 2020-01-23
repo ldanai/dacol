@@ -274,7 +274,7 @@ dc_rank_ptile = function(x, level_rank = c(1, 2, 3, 4, seq(5, 100, 5)))
   if(!is.vector(x)) abort("x must be vector")
 
   level_rank   = sort(level_rank, decreasing = TRUE)
-  pct_interval = quantile(x, probs = 1 - level_rank/100)
+  pct_interval = quantile(x, probs = 1 - level_rank/max(level_rank))
   level_rank[findInterval(x, pct_interval)]
 }
 
