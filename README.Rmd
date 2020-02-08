@@ -22,6 +22,7 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/dacol)](https://cran.r-project.org/package=dacol)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- [![DOI](https://zenodo.org/badge/123997166.svg)](https://zenodo.org/badge/latestdoi/123997166) -->
+[![R build status](https://github.com/ldanai/dacol/workflows/R-CMD-check/badge.svg)](https://github.com/ldanai/dacol/actions)
 <!-- badges: end -->
 
 dacol provides utilities to add or modify columns in dataframe.
