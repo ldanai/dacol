@@ -5,19 +5,15 @@
 
 <!-- badges: start -->
 
-[![Travis build
-status](https://travis-ci.org/ldanai/dacol.svg?branch=master)](https://travis-ci.org/ldanai/dacol)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/ldanai/dacol?branch=master&svg=true)](https://ci.appveyor.com/project/ldanai/dacol)
-[![Codecov test
-coverage](https://codecov.io/gh/ldanai/dacol/branch/master/graph/badge.svg)](https://codecov.io/gh/ldanai/dacol?branch=master)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/dacol)](https://cran.r-project.org/package=dacol)
+[![R build
+status](https://github.com/ldanai/dacol/workflows/R-CMD-check/badge.svg)](https://github.com/ldanai/dacol/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/ldanai/dacol/branch/master/graph/badge.svg)](https://codecov.io/gh/ldanai/dacol?branch=master)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- [![DOI](https://zenodo.org/badge/123997166.svg)](https://zenodo.org/badge/latestdoi/123997166) -->
-[![R build
-status](https://github.com/ldanai/dacol/workflows/R-CMD-check/badge.svg)](https://github.com/ldanai/dacol/actions)
 <!-- badges: end -->
 
 dacol provides utilities to add or modify columns in dataframe.
@@ -59,16 +55,16 @@ dta1
 #> # A tibble: 200 x 3
 #>       x1    x2    x3
 #>    <dbl> <dbl> <int>
-#>  1 -36   0       169
-#>  2 -35.6 0.151   182
-#>  3 -35.3 0.302   183
-#>  4 -34.9 0.452    80
-#>  5 -34.6 0.603    19
-#>  6 -34.2 0.754   152
-#>  7 -33.8 0.905    47
-#>  8 -33.5 1.06    120
-#>  9 -33.1 1.21     13
-#> 10 -32.7 1.36    181
+#>  1 -36   0        41
+#>  2 -35.6 0.151    13
+#>  3 -35.3 0.302   162
+#>  4 -34.9 0.452    53
+#>  5 -34.6 0.603   139
+#>  6 -34.2 0.754   169
+#>  7 -33.8 0.905   180
+#>  8 -33.5 1.06    126
+#>  9 -33.1 1.21    165
+#> 10 -32.7 1.36     27
 #> # ... with 190 more rows
 
 dta1 = 
@@ -110,16 +106,16 @@ dta1
 #> # A tibble: 200 x 20
 #>       x1    x2    x3 y_cosine y_logistic y_zcore y_dist_canb y_dist_cos
 #>    <dbl> <dbl> <int>    <dbl>      <dbl>   <dbl>       <dbl>      <dbl>
-#>  1 -36   0       169        0     0        -1.72    0             0.498
-#>  2 -35.6 0.151   182        0     0.0251   -1.70    0.000828      0.498
-#>  3 -35.3 0.302   183        0     0.0502   -1.68    0.00164       0.498
-#>  4 -34.9 0.452    80        0     0.0752   -1.67    0.00562       0.498
-#>  5 -34.6 0.603    19        0     0.100    -1.65    0.0308        0.498
-#>  6 -34.2 0.754   152        0     0.125    -1.63    0.00493       0.498
-#>  7 -33.8 0.905    47        0     0.150    -1.62    0.0189        0.498
-#>  8 -33.5 1.06    120        0     0.174    -1.60    0.00872       0.498
-#>  9 -33.1 1.21     13        0     0.198    -1.58    0.0849        0.498
-#> 10 -32.7 1.36    181        0     0.222    -1.56    0.00744       0.498
+#>  1 -36   0        41        0     0        -1.72     0            0.498
+#>  2 -35.6 0.151    13        0     0.0251   -1.70     0.0115       0.498
+#>  3 -35.3 0.302   162        0     0.0502   -1.68     0.00186      0.498
+#>  4 -34.9 0.452    53        0     0.0752   -1.67     0.00846      0.498
+#>  5 -34.6 0.603   139        0     0.100    -1.65     0.00432      0.498
+#>  6 -34.2 0.754   169        0     0.125    -1.63     0.00444      0.498
+#>  7 -33.8 0.905   180        0     0.150    -1.62     0.005        0.498
+#>  8 -33.5 1.06    126        0     0.174    -1.60     0.00831      0.498
+#>  9 -33.1 1.21    165        0     0.198    -1.58     0.00726      0.498
+#> 10 -32.7 1.36     27        0     0.222    -1.56     0.0478       0.498
 #> # ... with 190 more rows, and 12 more variables: y_dist_euc <dbl>,
 #> #   y_dist_pear <dbl>, y_trim <dbl>, y_norm <dbl>, y_mode <int>, y_ceil <dbl>,
 #> #   y_dec_band1 <int>, y_dec_band2 <int>, y_dec_ptile1 <dbl>,
