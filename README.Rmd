@@ -16,13 +16,11 @@ knitr::opts_chunk$set(
 # dacol
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/ldanai/dacol.svg?branch=master)](https://travis-ci.org/ldanai/dacol)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/ldanai/dacol?branch=master&svg=true)](https://ci.appveyor.com/project/ldanai/dacol)
-[![Codecov test coverage](https://codecov.io/gh/ldanai/dacol/branch/master/graph/badge.svg)](https://codecov.io/gh/ldanai/dacol?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/dacol)](https://cran.r-project.org/package=dacol)
+[![R build status](https://github.com/ldanai/dacol/workflows/R-CMD-check/badge.svg)](https://github.com/ldanai/dacol/actions)
+[![Codecov test coverage](https://codecov.io/gh/ldanai/dacol/branch/master/graph/badge.svg)](https://codecov.io/gh/ldanai/dacol?branch=master)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- [![DOI](https://zenodo.org/badge/123997166.svg)](https://zenodo.org/badge/latestdoi/123997166) -->
-[![R build status](https://github.com/ldanai/dacol/workflows/R-CMD-check/badge.svg)](https://github.com/ldanai/dacol/actions)
 <!-- badges: end -->
 
 dacol provides utilities to add or modify columns in dataframe.
