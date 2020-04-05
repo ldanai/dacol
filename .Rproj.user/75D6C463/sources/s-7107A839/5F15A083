@@ -1,0 +1,24 @@
+{
+    "id": "5F15A083",
+    "path": "D:/Work/Research/Projects/r-package/dacol/notes/setup-dacol.R",
+    "project_path": "notes/setup-dacol.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": true,
+    "created": 1586050107689.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "cursorPosition": "78,22",
+        "scrollLine": "60"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1585210230,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1586050109857,
+    "read_only": false,
+    "read_only_alternatives": []
+}
