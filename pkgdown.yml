@@ -1,0 +1,8 @@
+pandoc: 2.7.3
+pkgdown: 1.5.0.9000
+pkgdown_sha: 1522b5625edb570935afcd3e9add44cc54d6272e
+articles:
+  dacol-getstart: dacol-getstart.html
+  dacol-guide: dacol-guide.html
+last_built: 2020-04-05T02:15Z
+
