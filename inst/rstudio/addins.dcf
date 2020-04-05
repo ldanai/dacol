@@ -1,0 +1,5 @@
+Name: Insert dashes
+Description: Inserts insert dashes as a comment section
+Binding: insert_dashes
+Interactive: false
+
