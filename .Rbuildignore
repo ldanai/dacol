@@ -16,3 +16,4 @@
 ^_pkgdown\.yml$
 ^pkgdown$
 ^\.github/workflows/R-CMD-check\.yaml$
+^vignettes/articles$
