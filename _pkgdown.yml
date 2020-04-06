@@ -1,1 +1,24 @@
 destination: docs
+
+template:
+  params:
+    noindex: true
+
+# navbar:
+#   components:
+#     home: ~
+#     articles:
+#       text: Articles
+#       menu:
+#       - text: Category A
+#       - text: Title A1
+#         href: articles/a1.html
+#       - text: Title A2
+#         href: articles/a2.html
+#       - text: -------
+#       - text: "Category B"
+#       - text: Title B1
+#         href: articles/b1.html
+#      twitter:
+#        icon: fa-lg fa-twitter
+#        href: http://twitter.com/hadleywickham
