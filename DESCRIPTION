@@ -1,6 +1,6 @@
 Package: dacol
 Version: 0.2.0.9000
-Title: Utilities to modify column vector within dataframe
+Title: dacol: utilities to modify column vector within dataframe
 Description: A set of tools to make it easy to modify columns with mathematical transformations.
 Authors@R: 
     person(given = "Danai",
