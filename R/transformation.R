@@ -221,16 +221,11 @@ get_confidence_interval = function(x, level=0.95)
 # }
 dc_decile_band = function (x, n = NA)
 {
-  #library(dplyr)
+  if(!is.vector(x)) abort("x must be vector")
 
-  if (!is.vector(x))
-    abort("x must be vector")
+  d = tibble(x = x)
 
-  d = data_frame(x = x)
-
-  if(is.na(n))
-    n = max(dplyr::n_distinct(x), 1e4)
-  #n = n_distinct(x)
+  if(is.na(n)) n = max(dplyr::n_distinct(x), 1e4)
 
   d2 =
     d %>%
