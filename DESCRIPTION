@@ -23,7 +23,8 @@ Imports:
     glue,
     rlang,
     tibble,
-    ggplot2
+    ggplot2,
+    scales
 Suggests:
     testthat,
     covr,
