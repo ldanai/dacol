@@ -1,6 +1,11 @@
-#' Functions addon to dplyr
+#' Functions to summarise count with percentage within a dataframe
 #'
 #' \code{count_pct} is the extenstion of dplyr::count with percent
+#' \code{count_pct_group} is the extenstion of dplyr::count with percent by group
+#'
+#' @return returns a dataframe with count and percentage columns
+#'
+#' @name addon-dplyr
 #'
 #' @examples
 #'
