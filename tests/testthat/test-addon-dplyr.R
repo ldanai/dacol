@@ -8,4 +8,6 @@ test_that("count_pct works", {
 
   expect_equal(nrow(count_pct(df, y)), 3)
   expect_equal(nrow(count_pct(df, z)), 3)
+
+  expect_equal(nrow(count_pct_group(df, z)), 3)
 })

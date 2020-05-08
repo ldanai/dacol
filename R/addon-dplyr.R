@@ -13,12 +13,36 @@
 #'
 #' df %>% count_pct(y)
 #' df %>% count_pct(z)
+#'
+#' mtcars %>% count_pct(cyl)
+#' mtcars %>% count_pct(cyl, sort = TRUE)
+#' mtcars %>% count_pct(cyl, am, sort = TRUE)
+#'
+#' mtcars %>% count_pct_group(cyl)
+#' mtcars %>% count_pct_group(cyl, am)
+#' mtcars %>% count_pct_group(cyl, am) %>% arrange(desc(cyl))
 NULL
-
 
 #' @export
 #' @rdname addon-dplyr
-count_pct = function(df, vars, sort = TRUE)
+count_pct = function(.data, ..., sort = FALSE)
 {
-  df %>% count({{ vars }}, sort = sort) %>% mutate(pt = scales::percent(n/sum(n)))
+  .group_vars <- enquos(...)
+
+  .data %>%
+    count(!!!.group_vars, sort=sort) %>%
+    mutate(pt = scales::percent(n/sum(n)))
 }
+
+#' @export
+#' @rdname addon-dplyr
+count_pct_group = function(.data, ...)
+{
+  .group_vars <- enquos(...)
+
+  .data %>%
+    group_by(!!!.group_vars) %>%
+    summarise(n = n()) %>%
+    mutate(pt = scales::percent(n/sum(n)))
+}
+
