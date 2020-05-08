@@ -9,12 +9,13 @@
 #'
 #' @examples
 #'
-#' library(dacol)
-#' library(scales)
+#' library(dacol, warn.conflicts = FALSE)
+#' library(dplyr, warn.conflicts = FALSE)
+#' library(scales, warn.conflicts = FALSE)
 #'
-#' data.frame(x = c(1, 2, 3, 4, 5),
-#'            y = c("b", "a", "k", "b", "k"),
-#'            z = c(5, 8, 8, 6, 5))
+#' df = data.frame(x = c(1, 2, 3, 4, 5),
+#'                 y = c("b", "a", "k", "b", "k"),
+#'                 z = c(5, 8, 8, 6, 5))
 #'
 #' df %>% count_pct(y)
 #' df %>% count_pct(z)
@@ -25,29 +26,36 @@
 #'
 #' mtcars %>% count_pct_group(cyl)
 #' mtcars %>% count_pct_group(cyl, am)
-#' mtcars %>% count_pct_group(cyl, am) %>% arrange(desc(cyl))
+#' mtcars %>% count_pct_group(cyl, am) %>% arrange(cyl, desc(n))
 NULL
 
 #' @export
 #' @rdname addon-dplyr
-count_pct = function(.data, ..., sort = FALSE)
+count_pct = function(.data, ..., sort = FALSE, accuracy = 3)
 {
   .group_vars <- enquos(...)
 
   .data %>%
-    count(!!!.group_vars, sort=sort) %>%
-    mutate(pt = scales::percent(n/sum(n)))
+    count(!!!.group_vars, sort = sort) %>%
+    mutate(pt = scales::percent(n/sum(n), accuracy = accuracy))
+    # mutate(pt = scales::percent(round(n/sum(n), 3)))
 }
 
 #' @export
 #' @rdname addon-dplyr
-count_pct_group = function(.data, ...)
+count_pct_group = function(.data, ..., sort = FALSE, accuracy = 3)
 {
   .group_vars <- enquos(...)
 
+  df =
   .data %>%
     group_by(!!!.group_vars) %>%
     summarise(n = n()) %>%
-    mutate(pt = scales::percent(n/sum(n)))
+    mutate(pt = scales::percent(n/sum(n), accuracy = accuracy))
+    # mutate(pt = scales::percent(round(n/sum(n), 3)))
+
+  if(sort == TRUE) df = df %>% arrange(desc(n))
+
+  df
 }
 

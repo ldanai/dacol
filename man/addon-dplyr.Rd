@@ -6,9 +6,9 @@
 \alias{count_pct_group}
 \title{Functions to summarise count with percentage within a dataframe}
 \usage{
-count_pct(.data, ..., sort = FALSE)
+count_pct(.data, ..., sort = FALSE, accuracy = 3)
 
-count_pct_group(.data, ...)
+count_pct_group(.data, ..., sort = FALSE, accuracy = 3)
 }
 \value{
 returns a dataframe with count and percentage columns
@@ -19,12 +19,13 @@ returns a dataframe with count and percentage columns
 }
 \examples{
 
-library(dacol)
-library(scales)
+library(dacol, warn.conflicts = FALSE)
+library(dplyr, warn.conflicts = FALSE)
+library(scales, warn.conflicts = FALSE)
 
-data.frame(x = c(1, 2, 3, 4, 5),
-           y = c("b", "a", "k", "b", "k"),
-           z = c(5, 8, 8, 6, 5))
+df = data.frame(x = c(1, 2, 3, 4, 5),
+                y = c("b", "a", "k", "b", "k"),
+                z = c(5, 8, 8, 6, 5))
 
 df \%>\% count_pct(y)
 df \%>\% count_pct(z)
@@ -35,5 +36,5 @@ mtcars \%>\% count_pct(cyl, am, sort = TRUE)
 
 mtcars \%>\% count_pct_group(cyl)
 mtcars \%>\% count_pct_group(cyl, am)
-mtcars \%>\% count_pct_group(cyl, am) \%>\% arrange(desc(cyl))
+mtcars \%>\% count_pct_group(cyl, am) \%>\% arrange(cyl, desc(n))
 }
