@@ -53,14 +53,14 @@ library(dacol)
 library(dplyr)
 
 max = 30
-dta1 = tibble(x1 = seq(-1.2*max, 1.2*max, length.out = 200),
-              x2 = seq(0, max, length.out = 200),
-              x3 = sample(200))
+df = tibble(x1 = seq(-1.2*max, 1.2*max, length.out = 200),
+            x2 = seq(0, max, length.out = 200),
+            x3 = sample(200))
 
-dta1
+df
 
-dta1 = 
-  dta1 %>% 
+df = 
+  df %>% 
   mutate(
     # Transformation
     y_cosine   = dc_cosine(x1, max),
@@ -92,7 +92,7 @@ dta1 =
     y_ranked2 = dc_rank_ptile(x3, c(seq(1, 100, 1))) 
   )
 
-dta1
+df
 ```
 
 ---

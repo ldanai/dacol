@@ -20,11 +20,12 @@ returns a dataframe with count and percentage columns
 \examples{
 
 library(dacol)
+library(dplyr)
 library(scales)
 
-data.frame(x = c(1, 2, 3, 4, 5),
-           y = c("b", "a", "k", "b", "k"),
-           z = c(5, 8, 8, 6, 5))
+df = data.frame(x = c(1, 2, 3, 4, 5),
+                y = c("b", "a", "k", "b", "k"),
+                z = c(5, 8, 8, 6, 5))
 
 df \%>\% count_pct(y)
 df \%>\% count_pct(z)
