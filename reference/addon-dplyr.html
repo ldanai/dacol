@@ -137,9 +137,9 @@ count_pct_group is the extenstion of dplyr::count with percent by group" />
 <code>count_pct_group</code> is the extenstion of dplyr::count with percent by group</p>
     </div>
 
-    <pre class="usage"><span class='fu'>count_pct</span>(<span class='no'>.data</span>, <span class='no'>...</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+    <pre class="usage"><span class='fu'>count_pct</span>(<span class='no'>.data</span>, <span class='no'>...</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>accuracy</span> <span class='kw'>=</span> <span class='fl'>3</span>)
 
-<span class='fu'>count_pct_group</span>(<span class='no'>.data</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>count_pct_group</span>(<span class='no'>.data</span>, <span class='no'>...</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>accuracy</span> <span class='kw'>=</span> <span class='fl'>3</span>)</pre>
 
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -148,13 +148,9 @@ count_pct_group is the extenstion of dplyr::count with percent by group" />
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dacol</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘dplyr’</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:stats’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    filter, lag</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:base’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>scales</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dacol</span>, <span class='kw'>warn.conflicts</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>, <span class='kw'>warn.conflicts</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>scales</span>, <span class='kw'>warn.conflicts</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='no'>df</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span>),
                 <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"b"</span>, <span class='st'>"a"</span>, <span class='st'>"k"</span>, <span class='st'>"b"</span>, <span class='st'>"k"</span>),
@@ -163,29 +159,29 @@ count_pct_group is the extenstion of dplyr::count with percent by group" />
 <span class='no'>df</span> <span class='kw'>%&gt;%</span> <span class='fu'>count_pct</span>(<span class='no'>y</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 3 x 3</span><span>
 #&gt;   y         n pt   
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> a         1 20%  
-#&gt; </span><span style='color: #555555;'>2</span><span> b         2 40%  
-#&gt; </span><span style='color: #555555;'>3</span><span> k         2 40%  </div><div class='input'><span class='no'>df</span> <span class='kw'>%&gt;%</span> <span class='fu'>count_pct</span>(<span class='no'>z</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 3 x 3</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> a         1 21%  
+#&gt; </span><span style='color: #555555;'>2</span><span> b         2 39%  
+#&gt; </span><span style='color: #555555;'>3</span><span> k         2 39%  </div><div class='input'><span class='no'>df</span> <span class='kw'>%&gt;%</span> <span class='fu'>count_pct</span>(<span class='no'>z</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 3 x 3</span><span>
 #&gt;       z     n pt   
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span>     5     2 40%  
-#&gt; </span><span style='color: #555555;'>2</span><span>     6     1 20%  
-#&gt; </span><span style='color: #555555;'>3</span><span>     8     2 40%  </div><div class='input'>
+#&gt; </span><span style='color: #555555;'>1</span><span>     5     2 39%  
+#&gt; </span><span style='color: #555555;'>2</span><span>     6     1 21%  
+#&gt; </span><span style='color: #555555;'>3</span><span>     8     2 39%  </div><div class='input'>
 <span class='no'>mtcars</span> <span class='kw'>%&gt;%</span> <span class='fu'>count_pct</span>(<span class='no'>cyl</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 3 x 3</span><span>
 #&gt;     cyl     n pt   
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span>     4    11 34.4%
-#&gt; </span><span style='color: #555555;'>2</span><span>     6     7 21.9%
-#&gt; </span><span style='color: #555555;'>3</span><span>     8    14 43.8%</div><div class='input'><span class='no'>mtcars</span> <span class='kw'>%&gt;%</span> <span class='fu'>count_pct</span>(<span class='no'>cyl</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 3 x 3</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span>     4    11 33%  
+#&gt; </span><span style='color: #555555;'>2</span><span>     6     7 21%  
+#&gt; </span><span style='color: #555555;'>3</span><span>     8    14 45%  </div><div class='input'><span class='no'>mtcars</span> <span class='kw'>%&gt;%</span> <span class='fu'>count_pct</span>(<span class='no'>cyl</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 3 x 3</span><span>
 #&gt;     cyl     n pt   
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span>     8    14 43.8%
-#&gt; </span><span style='color: #555555;'>2</span><span>     4    11 34.4%
-#&gt; </span><span style='color: #555555;'>3</span><span>     6     7 21.9%</div><div class='input'><span class='no'>mtcars</span> <span class='kw'>%&gt;%</span> <span class='fu'>count_pct</span>(<span class='no'>cyl</span>, <span class='no'>am</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 4</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span>     8    14 45%  
+#&gt; </span><span style='color: #555555;'>2</span><span>     4    11 33%  
+#&gt; </span><span style='color: #555555;'>3</span><span>     6     7 21%  </div><div class='input'><span class='no'>mtcars</span> <span class='kw'>%&gt;%</span> <span class='fu'>count_pct</span>(<span class='no'>cyl</span>, <span class='no'>am</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 4</span><span>
 #&gt;     cyl    am     n pt   
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span>     8     0    12 38%  
-#&gt; </span><span style='color: #555555;'>2</span><span>     4     1     8 25%  
+#&gt; </span><span style='color: #555555;'>1</span><span>     8     0    12 36%  
+#&gt; </span><span style='color: #555555;'>2</span><span>     4     1     8 24%  
 #&gt; </span><span style='color: #555555;'>3</span><span>     6     0     4 12%  
 #&gt; </span><span style='color: #555555;'>4</span><span>     4     0     3 9%   
 #&gt; </span><span style='color: #555555;'>5</span><span>     6     1     3 9%   
@@ -193,27 +189,27 @@ count_pct_group is the extenstion of dplyr::count with percent by group" />
 <span class='no'>mtcars</span> <span class='kw'>%&gt;%</span> <span class='fu'>count_pct_group</span>(<span class='no'>cyl</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 3 x 3</span><span>
 #&gt;     cyl     n pt   
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span>     4    11 34.4%
-#&gt; </span><span style='color: #555555;'>2</span><span>     6     7 21.9%
-#&gt; </span><span style='color: #555555;'>3</span><span>     8    14 43.8%</div><div class='input'><span class='no'>mtcars</span> <span class='kw'>%&gt;%</span> <span class='fu'>count_pct_group</span>(<span class='no'>cyl</span>, <span class='no'>am</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 4</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span>     4    11 33%  
+#&gt; </span><span style='color: #555555;'>2</span><span>     6     7 21%  
+#&gt; </span><span style='color: #555555;'>3</span><span>     8    14 45%  </div><div class='input'><span class='no'>mtcars</span> <span class='kw'>%&gt;%</span> <span class='fu'>count_pct_group</span>(<span class='no'>cyl</span>, <span class='no'>am</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 4</span><span>
 #&gt; </span><span style='color: #555555;'># Groups:   cyl [3]</span><span>
 #&gt;     cyl    am     n pt   
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span>     4     0     3 27%  
-#&gt; </span><span style='color: #555555;'>2</span><span>     4     1     8 73%  
+#&gt; </span><span style='color: #555555;'>2</span><span>     4     1     8 72%  
 #&gt; </span><span style='color: #555555;'>3</span><span>     6     0     4 57%  
-#&gt; </span><span style='color: #555555;'>4</span><span>     6     1     3 43%  
-#&gt; </span><span style='color: #555555;'>5</span><span>     8     0    12 86%  
-#&gt; </span><span style='color: #555555;'>6</span><span>     8     1     2 14%  </div><div class='input'><span class='no'>mtcars</span> <span class='kw'>%&gt;%</span> <span class='fu'>count_pct_group</span>(<span class='no'>cyl</span>, <span class='no'>am</span>) <span class='kw'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span>(<span class='no'>cyl</span>))</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 4</span><span>
+#&gt; </span><span style='color: #555555;'>4</span><span>     6     1     3 42%  
+#&gt; </span><span style='color: #555555;'>5</span><span>     8     0    12 87%  
+#&gt; </span><span style='color: #555555;'>6</span><span>     8     1     2 15%  </div><div class='input'><span class='no'>mtcars</span> <span class='kw'>%&gt;%</span> <span class='fu'>count_pct_group</span>(<span class='no'>cyl</span>, <span class='no'>am</span>) <span class='kw'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='no'>cyl</span>, <span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span>(<span class='no'>n</span>))</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 4</span><span>
 #&gt; </span><span style='color: #555555;'># Groups:   cyl [3]</span><span>
 #&gt;     cyl    am     n pt   
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span>     8     0    12 86%  
-#&gt; </span><span style='color: #555555;'>2</span><span>     8     1     2 14%  
+#&gt; </span><span style='color: #555555;'>1</span><span>     4     1     8 72%  
+#&gt; </span><span style='color: #555555;'>2</span><span>     4     0     3 27%  
 #&gt; </span><span style='color: #555555;'>3</span><span>     6     0     4 57%  
-#&gt; </span><span style='color: #555555;'>4</span><span>     6     1     3 43%  
-#&gt; </span><span style='color: #555555;'>5</span><span>     4     0     3 27%  
-#&gt; </span><span style='color: #555555;'>6</span><span>     4     1     8 73%  </div></span></pre>
+#&gt; </span><span style='color: #555555;'>4</span><span>     6     1     3 42%  
+#&gt; </span><span style='color: #555555;'>5</span><span>     8     0    12 87%  
+#&gt; </span><span style='color: #555555;'>6</span><span>     8     1     2 15%  </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
