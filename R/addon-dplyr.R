@@ -43,19 +43,13 @@ count_pct = function(.data, ..., sort = FALSE, accuracy = 3)
 
 #' @export
 #' @rdname addon-dplyr
-count_pct_group = function(.data, ..., sort = FALSE, accuracy = 3)
+count_pct_group = function(.data, ..., accuracy = 3)
 {
   .group_vars <- enquos(...)
 
-  df =
   .data %>%
     group_by(!!!.group_vars) %>%
     summarise(n = n()) %>%
     mutate(pt = scales::percent(n/sum(n), accuracy = accuracy))
-    # mutate(pt = scales::percent(round(n/sum(n), 3)))
-
-  if(sort == TRUE) df = df %>% arrange(desc(n))
-
-  df
 }
 

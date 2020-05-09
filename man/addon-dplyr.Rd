@@ -8,7 +8,7 @@
 \usage{
 count_pct(.data, ..., sort = FALSE, accuracy = 3)
 
-count_pct_group(.data, ..., sort = FALSE, accuracy = 3)
+count_pct_group(.data, ..., accuracy = 3)
 }
 \value{
 returns a dataframe with count and percentage columns
